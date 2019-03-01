@@ -51,13 +51,13 @@ Landing pages for sign-in & user account:
 ![Sign In & User Account Page](/public/images/plan/views-landing-user-account.jpg)
 
 Medication section expanded:
-![Medication View Expanded](public/images/plan/views-medication.jpg)
+![Medication View Expanded](/public/images/plan/views-medication.JPG)
 
 Vet visits section expanded:
-![Vet Visit View Expanded](/public/images/plan/views-vet-visit.jpg)
+![Vet Visit View Expanded](/public/images/plan/views-vet-visit.JPG)
 
 Notes section expanded:
-![Notes View Expanded](/public/images/plan/views-notes.jpg)
+![Notes View Expanded](/public/images/plan/views-notes.JPG)
 
 Woofer Logo (rough) ideas:
 ![Woofer Logo (rough) Ideas](/public/images/plan/woofer-logo-ideas.png)
