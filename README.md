@@ -60,7 +60,7 @@ Notes section expanded:
 ![Component Tree](/public/images/plan/views-notes.jpg)
 
 Woofer Logo (rough) ideas:
-![Component Tree](/public/images/plan/woofer-logo-ideas.png)
+![Component Tree](/public/images/plan/woofer-logo-ideas.jpg)
 
 
 
