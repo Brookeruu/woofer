@@ -1,39 +1,72 @@
-Project Proposal / Outline
-Name of Project: Woofer
+# Project Proposal / Outline
+## Name of Project: Woofer
 
-Project’s Purpose or Goal: Convenient place to store your pup's documents pertaining to vet visits, vaccines, treatments, and medication.
+#### Project’s Purpose or Goal: Convenient place to store your pup's documents pertaining to vet visits, vaccines, treatments, and medication.
 
-Absolute minimum features the project requires to meet this purpose or goal:
+#### Absolute minimum features the project requires to meet this purpose or goal:
 
-Authentication : user accounts and database to store documents/info
-Track vaccine/medication (add them to Google Calendar: when received and next due date)
-User can have multiple pets 
-Upload image of pup
-Miscellaneous notes section
-Ability to upload pdfs from vet visits
-What tools, frameworks, libraries, APIs, modules and/or other resources (whatever is specific to your track, and your language) will you use to create this MVP? List them all here. Be specific.
-
-React / Redux
-Google calendar api
-Database : probably Firestore 
-materials-ui and/or styled-components
-If you finish developing the minimum viable product (MVP) with time to spare, what will you work on next? Describe these features here: Be specific.
-
-Tag multiple pets to one medication: set up one reminder for multiple dogs. Example: both of my dogs receive a monthly heart worm treatment. Instead a reminder for each dog, receive one reminder that includes both dogs.
-Add searchable tags to uploaded pdfs 
-Searchable tags for notes section
-Authentication animation when creating user account
-Upcoming vet appointments (add to Google Calendar)
-Track buying food/treats (set reminder for autoship with Chewy)
-Ability to share documents from app (share pdf with doggy daycare, new vet, pet sitter, etc)
-Track weight and food intake
-Add doggy daycare reminder
-What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?
-
-elemental-ui (for search tags)
-This is all I can think of for now, but I'm sure more will come up as I work develop the project. 
+* Authentication : user accounts and database to store documents/info
+* Track vaccine/medication (add them to Google Calendar: when received and next due date)
+* User can have multiple pets 
+* Upload image of pup
+* Miscellaneous notes section
+* Ability to upload pdfs from vet visits
 
 
+#### Tools, frameworks, libraries, APIs, modules and/or other resources to use to create this MVP:
+
+* React / Redux
+* Google calendar api
+* Database : probably Firestore 
+* Materials-ui and/or styled-components
+
+#### If MVP is met with time to spare, further plans include to implement:
+
+* Tag multiple pets to one medication: set up one reminder for multiple dogs. Example: both of my dogs receive a monthly heart worm treatment. Instead a reminder for each dog, receive one reminder that includes both dogs.
+* Add searchable tags to uploaded pdfs 
+* Searchable tags for notes section
+* Authentication animation when creating user account
+* Upcoming vet appointments (add to Google Calendar)
+* Track buying food/treats (set reminder for autoship with Chewy)
+* Ability to share documents from app (share pdf with doggy daycare, new vet, pet sitter, etc)
+* Track weight and food intake
+* Add doggy daycare reminder
+
+
+#### Additional tools, frameworks, libraries, APIs, or other resources will these additional features may require:
+
+* Elemental-ui (for search tags)
+
+#### Rough Sketch of Component Tree & Views 
+
+**Component Tree**
+
+![Component Tree](/public/images/plan/component-tree.jpg)
+
+![Component Tree](/public/images/plan/component-tree-detail.jpg)
+
+**Views**
+
+Landing pages for sign-in & user account: 
+![Component Tree](/public/images/plan/views-landing-user-account.jpg)
+
+Medication section expanded:
+![Component Tree](/public/images/plan/views-medication.jpg)
+
+Vet visits section expanded:
+![Component Tree](/public/images/plan/views-vet-visit.jpg)
+
+Notes section expanded:
+![Component Tree](/public/images/plan/views-notes.jpg)
+
+Woofer Logo (rough) ideas:
+![Component Tree](/public/images/plan/woofer-logo-ideas.png)
+
+
+
+
+
+ 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
