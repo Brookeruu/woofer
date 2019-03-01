@@ -1,5 +1,7 @@
-# Project Proposal / Outline
-## Name of Project: Woofer
+# Woofer 
+#### By Brooke Perry
+
+## Project Proposal / Outline
 
 #### Project’s Purpose or Goal: Convenient place to store your pup's documents pertaining to vet visits, vaccines, treatments, and medication.
 
@@ -37,7 +39,7 @@
 
 * Elemental-ui (for search tags)
 
-#### Rough Sketch of Component Tree & Views 
+#### Rough Sketch Images of Component Tree & Views 
 
 **Component Tree**
 
