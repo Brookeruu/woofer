@@ -1,6 +1,7 @@
 import React from 'react';
 import NewPet from './NewPet.jsx';
 import Pet from './Pet.jsx';
+import PropTypes from 'prop-types';
 
 export default function Petlist () {
   
