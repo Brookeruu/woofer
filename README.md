@@ -48,19 +48,19 @@
 **Views**
 
 Landing pages for sign-in & user account: 
-![Component Tree](/public/images/plan/views-landing-user-account.jpg)
+![Sign In & User Account Page](/public/images/plan/views-landing-user-account.jpg)
 
 Medication section expanded:
-![Component Tree](/public/images/plan/views-medication.jpg)
+![Medication View Expanded](/public/images/plan/views-medication.jpg)
 
 Vet visits section expanded:
-![Component Tree](/public/images/plan/views-vet-visit.jpg)
+![Vet Visit View Expanded](/public/images/plan/views-vet-visit.jpg)
 
 Notes section expanded:
-![Component Tree](/public/images/plan/views-notes.jpg)
+![Notes View Expanded](/public/images/plan/views-notes.jpg)
 
 Woofer Logo (rough) ideas:
-![Component Tree](/public/images/plan/woofer-logo-ideas.jpg)
+![Woofer Logo (rough) Ideas](/public/images/plan/woofer-logo-ideas.png)
 
 
 
