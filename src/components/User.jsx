@@ -5,7 +5,7 @@ export default function User() {
   
   return(
     <div>
-      <h3>This will be the user page</h3>
+      <h3>username here!</h3>
       <PetList />
     </div>
   )

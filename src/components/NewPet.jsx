@@ -1,10 +1,13 @@
 import React from 'react';
+import Button from './Button';
 
 export default function NewPet() {
   
   return(
     <div>
-      <h3>Add a new pet here</h3>
+      
+      <Button>Add another pup!</Button>
+      
     </div>
   )
 }

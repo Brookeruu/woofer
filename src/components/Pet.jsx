@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 import jupiter from './../images/jupiter.png';
+import phantom from './../images/phantom.png';
+
 
 
 export default function Pet(props) {
@@ -9,10 +12,11 @@ export default function Pet(props) {
     <div>
 
       <img  
-          src={jupiter}
+          src={props.image}
           style={{
             width: '200px',
-            borderRadius: '50%'
+            borderRadius: '50%',
+            marginTop: '30px'
           }}
       ></img>
       <h3>{props.name}</h3>
