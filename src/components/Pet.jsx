@@ -14,7 +14,8 @@ export default function Pet(props) {
       <img  
           src={props.image}
           style={{
-            width: '200px',
+            width: '170px',
+            border: 'solid 3px white',
             borderRadius: '50%',
             marginTop: '30px'
           }}

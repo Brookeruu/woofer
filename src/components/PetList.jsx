@@ -25,15 +25,7 @@ export default function Petlist () {
   
   return (
     <div>
-      <div
-        style={{
-          backgroundColor: '#6BBAA7',
-          padding: '1em',
-          marinLeft: '0',
-          minHeight: '100vh',
-          width: '350px'
-        }}
-      >
+      <div>
     
         <h3>This will be the List of Pets</h3>
         {petList.map((pet, index) =>

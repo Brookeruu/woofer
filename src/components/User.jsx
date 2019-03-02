@@ -5,8 +5,19 @@ export default function User() {
   
   return(
     <div>
-      <h3>username here!</h3>
-      <PetList />
+      <div 
+      style={{
+        backgroundColor: '#93ccbf',
+        padding: '1em',
+        marinLeft: '0',
+        minHeight: '100vh',
+        width: '350px'
+      }}
+      
+      >
+        <h3>username here!</h3>
+        <PetList />
+      </div>
     </div>
   )
 }
