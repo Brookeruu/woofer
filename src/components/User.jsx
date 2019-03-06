@@ -9,13 +9,13 @@ export default function User() {
       style={{
         backgroundColor: '#93ccbf',
         padding: '1em',
-        marinLeft: '0',
+        marginLeft: '0',
         minHeight: '100vh',
         width: '350px'
       }}
       
       >
-        <h3>username here!</h3>
+        <h3>Hi Username!</h3>
         <PetList />
       </div>
     </div>
