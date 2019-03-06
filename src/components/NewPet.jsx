@@ -1,13 +1,21 @@
 import React from 'react';
-import Button from './Button';
+import Button from './styled-components/Button';
 
-export default function NewPet() {
-  
-  return(
-    <div>
-      
-      <Button>Add another pup!</Button>
-      
-    </div>
-  )
+class NewPet extends React.Component {
+  constructor(props) {
+    super(props)
+    this.addPetButtonRef = React.createRef();
+  }
+  render(){
+      return(
+        <div>
+          
+          <Button>Add another pup!</Button>
+          
+          
+        </div>
+      );
+  }
 }
+
+export default NewPet;

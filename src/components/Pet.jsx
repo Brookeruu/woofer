@@ -1,28 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { v4 } from 'uuid';
-import jupiter from './../images/jupiter.png';
-import phantom from './../images/phantom.png';
+// import { v4 } from 'uuid';
+import Title from './styled-components/Title.jsx';
 
-
+const pStyle = {
+  color: 'white',
+  textTransform: 'uppercase',
+  fontSize: '36px',
+  letterSpacing: '2px',
+  lineSpacing: '10px'
+}
 
 export default function Pet(props) {
   
   return (
     <div>
-
       <img  
           src={props.image}
+          alt='your dog'
           style={{
             width: '170px',
             border: 'solid 3px white',
             borderRadius: '50%',
-            marginTop: '30px'
+            marginTop: '30px',
+            marginBottom: '-30px'
           }}
       ></img>
-      <h3>{props.name}</h3>
-      <p>Microchip: {props.microchip}</p>
-      <p>Age: {props.age} yrs</p>
+    
+        <Title style={{marginBottom: '-50px'}}>{props.name}</Title>
+    
+      <p style={pStyle}>
+      Microchip: {props.microchip} <br/>
+      Age: {props.age} yrs</p>
       
     </div>
   )
