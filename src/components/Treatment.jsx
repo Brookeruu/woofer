@@ -28,7 +28,7 @@ export default function Treatment() {
       style={{
         letterSpacing: '2px'
       }}
-      >TREATMENT Component
+      >TREATMENTS 
       </p>
     </div>
     

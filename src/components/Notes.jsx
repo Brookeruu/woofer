@@ -28,7 +28,7 @@ export default function Notes() {
       style={{
         letterSpacing: '2px'
       }}
-      >Notes Component
+      >NOTES
       </p>
     </div>
     

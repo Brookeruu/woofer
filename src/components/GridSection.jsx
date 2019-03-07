@@ -3,16 +3,17 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import pills from '../images/pills.png';
-import syringe from '../images/syringe.png';
-import stethoscope from '../images/stethoscope.png';
-import notes from '../images/notes.png';
 import Treatment from './Treatment';
 import Vaccine from './Vaccine';
 import VetVisit from './VetVisit';
 import Notes from './Notes';
 import Calendar from './Calendar';
 import GridWrapper from './styled-components/GridWrapper';
+import pills from '../images/pills.png';
+import syringe from '../images/syringe.png';
+import stethoscope from '../images/stethoscope.png';
+import notes from '../images/notes.png';
+import calendar from '../images/calendar.png';
 
 
 const styles = theme => ({
@@ -109,6 +110,7 @@ class GridSection extends React.Component {
             <Grid item xs={12}>
               <Paper className={classes.paper}>
               <GridWrapper>
+              <img className={classes.icon} src={calendar}></img>
               <Calendar />
               </GridWrapper>
               </Paper>

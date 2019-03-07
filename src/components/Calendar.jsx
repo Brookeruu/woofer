@@ -28,7 +28,7 @@ export default function Calendar() {
       style={{
         letterSpacing: '2px'
       }}
-      >Calendar Component
+      >CALENDAR
       </p>
     </div>
     

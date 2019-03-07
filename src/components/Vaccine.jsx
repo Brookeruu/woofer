@@ -28,7 +28,7 @@ export default function Vaccine() {
       style={{
         letterSpacing: '2px'
       }}
-      >VACCINE Component
+      >VACCINES
       </p>
     </div>
     

@@ -14,7 +14,6 @@ class NewPet extends React.Component {
         <div>
           
           <Button>Add another pup!</Button>
-          <Button>TEST</Button>
           
         </div>
       );

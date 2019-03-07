@@ -28,7 +28,7 @@ export default function VetVisit() {
       style={{
         letterSpacing: '2px'
       }}
-      >Vet Visit Component
+      >VET VISITS
       </p>
     </div>
     
