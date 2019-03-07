@@ -2,16 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import { v4 } from 'uuid';
 import Title from './styled-components/Title.jsx';
+import pawprint from '../images/paw-print.svg';
+import dogpaw from '../images/dog-paw.png';
 
 const pStyle = {
-  color: 'white',
+  color: '#c38d9e',
   textTransform: 'uppercase',
   fontSize: '36px',
   letterSpacing: '2px',
   lineSpacing: '10px'
 }
 
+const icon = {
+  height: '30px',
+  marginBottom: '20px'
+}
+
 export default function Pet(props) {
+  const { classes } = props;
   
   return (
     <div>
@@ -27,8 +35,8 @@ export default function Pet(props) {
           }}
       ></img>
     
-        <Title style={{marginBottom: '-50px'}}>{props.name}</Title>
-    
+        <Title style={{marginBottom: '-50px'}}>{props.name} <img style={icon} src={pawprint}></img></Title>
+        
       <p style={pStyle}>
       Microchip: {props.microchip} <br/>
       Age: {props.age} yrs</p>

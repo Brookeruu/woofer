@@ -10,12 +10,15 @@ export default function User() {
         backgroundColor: '#93ccbf',
         padding: '1em',
         marginLeft: '0',
-        minHeight: '100vh',
+        minHeight: '100%',
         width: '350px'
       }}
       
       >
-        <h3>Hi Username!</h3>
+        <h3
+          style={{fontSize: '48px'}}
+        >
+        Hi, Brooke!</h3>
         <PetList />
       </div>
     </div>

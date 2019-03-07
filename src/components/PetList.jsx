@@ -14,8 +14,8 @@ const petList = [
   },
   {
     name: 'Phantom',
-    microchip: '1234567',
-    age: '2',
+    microchip: '7654321',
+    age: '7',
     image: phantom
   }
 ]
@@ -26,8 +26,7 @@ export default function Petlist () {
   return (
     <div>
       <div>
-    
-        <h3>This will be the List of Pets</h3>
+  
         {petList.map((pet, index) =>
           <Pet 
               name={pet.name}
