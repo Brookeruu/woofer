@@ -18,7 +18,8 @@ export default function User() {
       >
         <h3
           style={{
-            fontSize: '48px'
+            fontSize: '48px',
+            letterspacing: '3px'
           }}
         >
         Hi, Brooke!</h3>

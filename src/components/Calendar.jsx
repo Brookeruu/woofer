@@ -21,14 +21,14 @@ const hovered = {
 }
 
 
-export default function Vaccine() {
+export default function Calendar() {
   return (
     <div>
       <p
       style={{
         letterSpacing: '2px'
       }}
-      >VACCINE Component
+      >Calendar Component
       </p>
     </div>
     

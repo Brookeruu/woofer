@@ -21,14 +21,14 @@ const hovered = {
 }
 
 
-export default function Vaccine() {
+export default function VetVisit() {
   return (
     <div>
       <p
       style={{
         letterSpacing: '2px'
       }}
-      >VACCINE Component
+      >Vet Visit Component
       </p>
     </div>
     

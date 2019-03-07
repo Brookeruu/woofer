@@ -7,6 +7,12 @@ import pills from '../images/pills.png';
 import syringe from '../images/syringe.png';
 import stethoscope from '../images/stethoscope.png';
 import notes from '../images/notes.png';
+import Treatment from './Treatment';
+import Vaccine from './Vaccine';
+import VetVisit from './VetVisit';
+import Notes from './Notes';
+import Calendar from './Calendar';
+import GridWrapper from './styled-components/GridWrapper';
 
 
 const styles = theme => ({
@@ -14,7 +20,7 @@ const styles = theme => ({
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing.unit * 2,
+    padding: theme.spacing.unit * 1,
     textAlign: 'center',
     color: theme.palette.text.secondary,
     border: 'solid 5px #c38d9e',
@@ -42,19 +48,9 @@ const hovered = {
 class GridSection extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      hover: false
-    }
+    this.hoverOverGridRef = React.createRef();
   }
-  
-  onMouseEnter() {
-    this.setState({ hover: true });
-  }
-  
-  onMouseLeave() {
-    this.setState({ hover: false });
-  }
-  
+
   render() { 
     const { classes } = this.props;
     return (
@@ -71,51 +67,51 @@ class GridSection extends React.Component {
         <div className={classes.root, classes.titles}>
           <Grid container spacing={24}>
             <Grid item sm>
-              <Paper 
-                id="treatments"
-                className={classes.paper}
-                onMouseEnter={() => this.onMouseEnter()}
-                onMouseLeave={() => this.onMouseLeave()}
-                style={{ 
-                  backgroundColor: this.state.hover? '#F5F5F5' : '#ffffff'
-                }}
-                >
-                <img className={classes.icon} src={pills}></img>
-                <p>Treatments</p>
-              </Paper>
+                <Paper 
+                  id="treatments"
+                  className={classes.paper}
+                  >
+                  <GridWrapper>
+                  <img className={classes.icon} src={pills}></img>
+                  <Treatment />
+                  </GridWrapper>
+                </Paper>
             </Grid>
             <Grid item sm>
               <Paper 
                 id="vaccines"
                 className={classes.paper}
-                onMouseEnter={() => this.onMouseEnter()}
-                onMouseLeave={() => this.onMouseLeave()}
-                style={{ 
-                  backgroundColor: this.state.hover? '#F5F5F5' : '#ffffff'
-                }}
                 >
-                <div style={{margin: 'auto'}}>
+                <GridWrapper>
                   <img className={classes.icon} src={syringe}></img>
-                  <p>Vaccines</p>
-                </div>
+                  <Vaccine />
+                </GridWrapper>
               </Paper>
             </Grid>
             <Grid item sm>
               <Paper 
                 className={classes.paper}>
+                <GridWrapper>
                 <img className={classes.icon} src={stethoscope}></img>
-                <p>Vet Visits</p>
+                <VetVisit />
+                </GridWrapper>
               </Paper>
             </Grid>
             <Grid item sm>
               <Paper 
                 className={classes.paper}>
+                <GridWrapper>
                 <img className={classes.icon} src={notes}></img>
-                <p>Notes</p>
+                <Notes />
+                </GridWrapper>
               </Paper>
             </Grid>
             <Grid item xs={12}>
-              <Paper className={classes.paper}>Calendar</Paper>
+              <Paper className={classes.paper}>
+              <GridWrapper>
+              <Calendar />
+              </GridWrapper>
+              </Paper>
             </Grid>
           </Grid>
 
