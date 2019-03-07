@@ -35,60 +35,93 @@ const styles = theme => ({
   }
 });
 
-function GridSection(props) {
-  const { classes } = props;
+const hovered = {
+  backgroundColor: '#E8E8E8'
+}
 
-  return (
-    <div
-      style={{
-        padding: '1em',
-        minHeight: '100vh',
-        width: '100vh',
-        minHeight: '100vh',
-        margin: '20px',
-        marginTop: '0px'
-      }}
-    >
-      <div className={classes.root, classes.titles}>
-        <Grid container spacing={24}>
-          <Grid item sm>
-            <Paper 
-              className={classes.paper}>
-              <img className={classes.icon} src={pills}></img>
-              <p>Treatments</p>
-            </Paper>
+class GridSection extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      hover: false
+    }
+  }
+  
+  onMouseEnter() {
+    this.setState({ hover: true });
+  }
+  
+  onMouseLeave() {
+    this.setState({ hover: false });
+  }
+  
+  render() { 
+    const { classes } = this.props;
+    return (
+     <div
+        style={{
+          padding: '1em',
+          minHeight: '100vh',
+          width: '100vh',
+          minHeight: '100vh',
+          margin: '20px',
+          marginTop: '0px'
+        }}
+      >
+        <div className={classes.root, classes.titles}>
+          <Grid container spacing={24}>
+            <Grid item sm>
+              <Paper 
+                id="treatments"
+                className={classes.paper}
+                onMouseEnter={() => this.onMouseEnter()}
+                onMouseLeave={() => this.onMouseLeave()}
+                style={{ 
+                  backgroundColor: this.state.hover? '#F5F5F5' : '#ffffff'
+                }}
+                >
+                <img className={classes.icon} src={pills}></img>
+                <p>Treatments</p>
+              </Paper>
+            </Grid>
+            <Grid item sm>
+              <Paper 
+                id="vaccines"
+                className={classes.paper}
+                onMouseEnter={() => this.onMouseEnter()}
+                onMouseLeave={() => this.onMouseLeave()}
+                style={{ 
+                  backgroundColor: this.state.hover? '#F5F5F5' : '#ffffff'
+                }}
+                >
+                <div style={{margin: 'auto'}}>
+                  <img className={classes.icon} src={syringe}></img>
+                  <p>Vaccines</p>
+                </div>
+              </Paper>
+            </Grid>
+            <Grid item sm>
+              <Paper 
+                className={classes.paper}>
+                <img className={classes.icon} src={stethoscope}></img>
+                <p>Vet Visits</p>
+              </Paper>
+            </Grid>
+            <Grid item sm>
+              <Paper 
+                className={classes.paper}>
+                <img className={classes.icon} src={notes}></img>
+                <p>Notes</p>
+              </Paper>
+            </Grid>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>Calendar</Paper>
+            </Grid>
           </Grid>
-          <Grid item sm>
-            <Paper 
-              className={classes.paper}>
-              <div style={{margin: 'auto'}}>
-                <img className={classes.icon} src={syringe}></img>
-                <p>Vaccines</p>
-              </div>
-            </Paper>
-          </Grid>
-          <Grid item sm>
-            <Paper 
-              className={classes.paper}>
-              <img className={classes.icon} src={stethoscope}></img>
-              <p>Vet Visits</p>
-            </Paper>
-          </Grid>
-          <Grid item sm>
-            <Paper 
-              className={classes.paper}>
-              <img className={classes.icon} src={notes}></img>
-              <p>Notes</p>
-            </Paper>
-          </Grid>
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>Calendar</Paper>
-          </Grid>
-        </Grid>
 
+        </div>
       </div>
-    </div>
-  );
+    );}
 }
 
 GridSection.propTypes = {
