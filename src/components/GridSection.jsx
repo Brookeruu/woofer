@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Treatment from './Treatment';
+import TreatmentList from './TreatmentList';
+import TreatmentControl from './TreatmentControl';
 import Vaccine from './Vaccine';
 import VetVisit from './VetVisit';
 import Notes from './Notes';
@@ -23,7 +25,8 @@ const styles = theme => ({
   paper: {
     padding: theme.spacing.unit * 1,
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    // color: theme.palette.text.secondary,
+    color: '#808080',
     border: 'solid 5px #c38d9e',
     borderRadius: '15px',
     minHeight: '250px',
@@ -52,7 +55,7 @@ class GridSection extends React.Component {
     this.hoverOverGridRef = React.createRef();
   }
 
-  render() { 
+  render() {
     const { classes } = this.props;
     return (
      <div
@@ -68,18 +71,18 @@ class GridSection extends React.Component {
         <div className={classes.root, classes.titles}>
           <Grid container spacing={24}>
             <Grid item sm>
-                <Paper 
+                <Paper
                   id="treatments"
                   className={classes.paper}
                   >
                   <GridWrapper>
                   <img className={classes.icon} src={pills}></img>
-                  <Treatment />
+                  <TreatmentControl />
                   </GridWrapper>
                 </Paper>
             </Grid>
             <Grid item sm>
-              <Paper 
+              <Paper
                 id="vaccines"
                 className={classes.paper}
                 >
@@ -90,7 +93,7 @@ class GridSection extends React.Component {
               </Paper>
             </Grid>
             <Grid item sm>
-              <Paper 
+              <Paper
                 className={classes.paper}>
                 <GridWrapper>
                 <img className={classes.icon} src={stethoscope}></img>
@@ -99,7 +102,7 @@ class GridSection extends React.Component {
               </Paper>
             </Grid>
             <Grid item sm>
-              <Paper 
+              <Paper
                 className={classes.paper}>
                 <GridWrapper>
                 <img className={classes.icon} src={notes}></img>

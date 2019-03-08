@@ -23,8 +23,6 @@ export default function TreatmentList(props) {
 
   return(
     <div>
-      <p>Treatment List</p>
-
       {masterTreatmentList.map((treatment,index) =>
       <Treatment
         treatment={treatment.treatment}
