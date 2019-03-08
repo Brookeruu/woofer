@@ -16,7 +16,6 @@ var masterTreatmentList = [
     received: '03/10/2019',
     due: '04/10/2019'
   }
-
 ]
 
 export default function TreatmentList(props) {
@@ -32,8 +31,14 @@ export default function TreatmentList(props) {
         key={index}
       />
       )}
-      <Button>Add Treatment</Button>
+      <Button
+        onClick={props.onShowNewTreatmentForm}
+      >Add New Treatment</Button>
     </div>
 
   )
+}
+
+TreatmentList.propTypes = {
+  onShowNewTreatmentForm: PropTypes.func
 }

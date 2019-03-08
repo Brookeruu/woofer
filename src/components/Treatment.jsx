@@ -1,27 +1,28 @@
 import React from 'react';
-import NewTreatment from './NewTreatment';
+// import NewTreatment from './NewTreatment';
 import PropTypes from 'prop-types';
 
 
 
   const title = {
-    color: '#808080',
-    letterSpacing: '1.5px',
+    color: '#38648c',
+    letterSpacing: '2px',
     textTransform: 'uppercase',
     textAlign: 'left',
-    paddingLeft : '10px',
+    paddingLeft : '20px',
     marginBottom: '-20px',
     marginTop: '-10px'
   }
   const text = {
-    color: '#A9A9A9',
+    color: '#808080',
     fontSize: '30px',
+    textTransform: 'uppercase',
     marginTop: '0px',
     marginBotton: '20px',
-    letterSpacing: '2px',
+    letterSpacing: '1.5px',
     lineHeight: '5px',
     textAlign: 'left',
-    paddingLeft: '10px'
+    paddingLeft: '20px'
   }
 
 
