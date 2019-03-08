@@ -35,9 +35,9 @@ export default function TreatmentList(props) {
         onClick={props.onShowNewTreatmentForm}
       >Add New Treatment</Button>
     </div>
+    )
+  }
 
-  )
-}
 
 TreatmentList.propTypes = {
   onShowNewTreatmentForm: PropTypes.func

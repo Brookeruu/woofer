@@ -1,7 +1,7 @@
 import React from 'react';
 import TreatmentList from './TreatmentList';
 import NewTreatment from './NewTreatment';
-import Button from './styled-components/Button';
+// import Button from './styled-components/Button';
 
 class TreatmentControl extends React.Component {
 
@@ -31,7 +31,7 @@ class TreatmentControl extends React.Component {
 
     let currentlyVisibleTreatments = null;
     if(this.state.treatmentListVisible) {
-      currentlyVisibleTreatments = <TreatmentList />
+      currentlyVisibleTreatments = <TreatmentList  onShowNewTreatmentForm={this.props.handleClickShowNewTreatmentForm} />
     } else {
       currentlyVisibleTreatments = null
     }
@@ -45,25 +45,25 @@ class TreatmentControl extends React.Component {
 
     return(
       <div>
-      <style> {`
-        .hover-toggle {}
-        .hover-toggle:hover {
-          text-decoration: underline;
-          color: #000000;
-        }
-      `}</style>
-        <p
-          className="hover-toggle"
-          style={{
-            letterSpacing: '2px'
-          }}
-          onClick={this.handleClickTreatmentList}
-          onShowNewTreatmentForm={this.handleClickShowNewTreatmentForm}
-        >
-        TREATMENTS
-        </p>
-        {currentlyVisibleTreatments}
-        {currentlyVisibleForm}
+        <style> {`
+          .hover-toggle {}
+          .hover-toggle:hover {
+            text-decoration: underline;
+            color: #000000;
+          }
+        `}</style>
+          <p
+            className="hover-toggle"
+            style={{
+              letterSpacing: '2px'
+            }}
+            onClick={this.handleClickTreatmentList}
+
+          >
+          TREATMENTS
+          </p>
+          {currentlyVisibleTreatments}
+          {currentlyVisibleForm}
       </div>
     );
   }
