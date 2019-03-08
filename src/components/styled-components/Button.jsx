@@ -1,5 +1,4 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Button = styled.button`
   background: white;
@@ -15,13 +14,12 @@ const Button = styled.button`
   text-transform: uppercase;
   letter-spacing: 2px;
 
-  
+
   ${props =>  `
     &:hover {
-      background: #fba100;
-      border: 2px solid #fba100;
-      color: #ffffff
-      
+      border: 4px solid #c38d9e;
+      color: #000000
+
     }
   `}
 `;
