@@ -1,7 +1,7 @@
 import React from 'react';
 import NewPet from './NewPet.jsx';
 import Pet from './Pet.jsx';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import jupiter from './../images/jupiter.png';
 import phantom from './../images/phantom.png';
 
@@ -22,22 +22,22 @@ const petList = [
 
 
 export default function Petlist () {
-  
+
   return (
     <div>
       <div>
-  
+
         {petList.map((pet, index) =>
-          <Pet 
+          <Pet
               name={pet.name}
               microchip={pet.microchip}
               age={pet.age}
               image={pet.image}
               key={index}
               />
-        
+
         )}
-        
+
           <NewPet />
       </div>
     </div>

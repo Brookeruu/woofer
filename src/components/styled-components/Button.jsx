@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Button = styled.button`
   background: white;
   border-radius: 3px;
-  border: 3px solid #ffffff;
+  border: 4px solid #ffffff;
   /* box-shadow: 0.25em 0.25em #6c648b; */
   color: #696969;
   margin: 1em 1em;
@@ -17,7 +17,7 @@ const Button = styled.button`
 
   ${props =>  `
     &:hover {
-      border: 4px solid #c38d9e;
+      border: 4px solid #fba100;
       color: #000000
 
     }

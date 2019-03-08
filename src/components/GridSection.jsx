@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Treatment from './Treatment';
-import TreatmentList from './TreatmentList';
+// import Treatment from './Treatment';
+// import TreatmentList from './TreatmentList';
 import TreatmentControl from './TreatmentControl';
 import Vaccine from './Vaccine';
 import VetVisit from './VetVisit';
 import Notes from './Notes';
 import Calendar from './Calendar';
-import GridWrapper from './styled-components/GridWrapper';
+// import GridWrapper from './styled-components/GridWrapper';
 import pills from '../images/pills.png';
 import syringe from '../images/syringe.png';
 import stethoscope from '../images/stethoscope.png';
@@ -45,9 +45,6 @@ const styles = theme => ({
   }
 });
 
-const hovered = {
-  backgroundColor: '#E8E8E8'
-}
 
 class GridSection extends React.Component {
   constructor(props) {
@@ -63,7 +60,6 @@ class GridSection extends React.Component {
           padding: '1em',
           minHeight: '100vh',
           width: '100vh',
-          minHeight: '100vh',
           margin: '20px',
           marginTop: '0px'
         }}
@@ -93,7 +89,7 @@ class GridSection extends React.Component {
                   className={classes.paper, "gridHover-toggle"}
                   >
 
-                    <img className={classes.icon} src={pills}></img>
+                    <img className={classes.icon} src={pills} alt="pills icon"></img>
                     <TreatmentControl />
 
                 </Paper>
@@ -105,9 +101,9 @@ class GridSection extends React.Component {
                 className={classes.paper, "gridHover-toggle"}
                 >
 
-                  <img className={classes.icon} src={syringe}></img>
+                  <img className={classes.icon} src={syringe} alt="syringe icon"></img>
                   <Vaccine />
-              
+
               </Paper>
             </Grid>
 
@@ -115,9 +111,9 @@ class GridSection extends React.Component {
               <Paper
                 className={classes.paper, "gridHover-toggle"}>
 
-                <img className={classes.icon} src={stethoscope}></img>
+                <img className={classes.icon} src={stethoscope} alt="stethoscope icon"></img>
                 <VetVisit />
-              
+
               </Paper>
             </Grid>
 
@@ -125,18 +121,18 @@ class GridSection extends React.Component {
               <Paper
                 className={classes.paper, "gridHover-toggle"}>
 
-                <img className={classes.icon} src={notes}></img>
+                <img className={classes.icon} src={notes} alt="notes icon"></img>
                 <Notes />
-              
+
               </Paper>
             </Grid>
 
             <Grid item xs={12}>
               <Paper className={classes.paper, "gridHover-toggle"}>
 
-              <img className={classes.icon} src={calendar}></img>
+              <img className={classes.icon} src={calendar} alt="calendar icon"></img>
               <Calendar />
-            
+
               </Paper>
             </Grid>
           </Grid>

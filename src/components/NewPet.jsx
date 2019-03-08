@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './styled-components/Button';
-import pawprint from '../images/paw-print.svg';
+// import pawprint from '../images/paw-print.svg';
 
 
 class NewPet extends React.Component {
@@ -8,13 +8,13 @@ class NewPet extends React.Component {
     super(props)
     this.addPetButtonRef = React.createRef();
   }
-  
+
   render(){
       return(
         <div>
-          
+
           <Button>Add another pup!</Button>
-          
+
         </div>
       );
   }

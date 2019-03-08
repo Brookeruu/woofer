@@ -20,10 +20,10 @@ const icon = {
 
 export default function Pet(props) {
   const { classes } = props;
-  
+
   return (
     <div>
-      <img  
+      <img
           src={props.image}
           alt='your dog'
           style={{
@@ -34,13 +34,13 @@ export default function Pet(props) {
             marginBottom: '-30px'
           }}
       ></img>
-    
+
         <Title style={{marginBottom: '-50px'}}>{props.name} <img style={icon} src={pawprint}></img></Title>
-        
+
       <p style={pStyle}>
       Microchip: {props.microchip} <br/>
       Age: {props.age} yrs</p>
-      
+
     </div>
   )
 }
@@ -51,6 +51,3 @@ Pet.propTypes = {
   age: PropTypes.string,
   image: PropTypes.string
 }
-
-
-

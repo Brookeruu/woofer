@@ -36,10 +36,12 @@ class NewTreatment extends React.Component {
       <div>
         <form onSubmit={this.handleNewTreatmentSubmission} >
           <input
+            placeholder="Treatment Name"
             type='text'
             id='treatment'
             ref={(input) => {_treatment = this.treatment;}}
           ></input>
+          <br/>
           <DatePicker
             selected={this.state.receivedDate}
             dateForm="MM/DD/YYYY"
@@ -47,6 +49,7 @@ class NewTreatment extends React.Component {
             id='received'
             ref={(input) => {_received = this.received;}}
           />
+          <br/>
           <DatePicker
             selected={this.state.dueDate}
             type='text'
@@ -54,7 +57,7 @@ class NewTreatment extends React.Component {
             ref={(input) => {_due = this.due;}}
           />
           <br/>
-          <Button type='submit'>Add Treatment</Button>
+          <Button type='submit'>Submit</Button>
         </form>
       </div>
     );
