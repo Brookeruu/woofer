@@ -2,36 +2,43 @@ import React from 'react';
 import NewTreatment from './NewTreatment';
 import PropTypes from 'prop-types';
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  icon: {
-    maxHeight: '125px',
-    margin: 'auto',
-    marginTop: '30px'
-  },
-  titles: {
-    // textTransform: 'uppercase',
-    marginTop: '-20px',
-    fontSize: '3em'
+
+
+  const title = {
+    color: '#808080',
+    letterSpacing: '1.5px',
+    textTransform: 'uppercase',
+    textAlign: 'left',
+    paddingLeft : '10px',
+    marginBottom: '-20px',
+    marginTop: '-10px'
   }
-});
+  const text = {
+    color: '#A9A9A9',
+    fontSize: '30px',
+    marginTop: '0px',
+    marginBotton: '20px',
+    letterSpacing: '2px',
+    lineHeight: '5px',
+    textAlign: 'left',
+    paddingLeft: '10px'
+  }
 
-const hovered = {
-  backgroundColor: '#E8E8E8'
-}
 
-
-export default function Treatment() {
+export default function Treatment(props) {
+  // const { classes } = props;
   return (
     <div>
-      <p
-      style={{
-        letterSpacing: '2px'
-      }}
-      >TREATMENTS
-      </p>
+      <h5
+        style={title}
+      >{props.treatment}</h5>
+      <div
+      style={text}>
+        <p>Received: {props.received}</p>
+        <p>Due: {props.due}</p>
+      </div>
+
+
     </div>
   )
 }
