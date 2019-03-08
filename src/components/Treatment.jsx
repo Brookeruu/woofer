@@ -1,5 +1,6 @@
 import React from 'react';
 import NewTreatment from './NewTreatment';
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
   root: {
@@ -32,7 +33,13 @@ export default function Treatment() {
       >TREATMENTS
       </p>
     </div>
-
   )
+}
+
+Treatment.propTypes = {
+  treatment: PropTypes.string,
+  dog: PropTypes.string,
+  received: PropTypes.string,
+  due: PropTypes.string
 
 }

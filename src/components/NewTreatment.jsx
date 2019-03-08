@@ -4,7 +4,12 @@ import { v4 } from 'uuid';
 import Button from './styled-components/Button';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Treatment from './Treatment';
 
+let _treatment = null;
+let _dog = 'Jupiter';
+let _received = null;
+let _due = null;
 
 class NewTreatment extends React.Component {
 
@@ -14,12 +19,11 @@ class NewTreatment extends React.Component {
       receivedDate: null,
       dueDate: null
     }
-  }
-
+  };
 
   handleNewTreatmentSubmission(event) {
     event.preventDefault();
-    props.onHandleNewTreatmentToList({treatment: _treatment.value, dog: 'Jupiter', received: _received.value, due: _due.value, id: v4()})
+    this.props.onHandleNewTreatmentToList({treatment: _treatment.value, dog: 'Jupiter', received: _received.value, due: _due.value, id: v4()})
   }
 
   handleReceivedDate(date) {
@@ -30,32 +34,32 @@ class NewTreatment extends React.Component {
   render() {
     return(
       <div>
-        <form onSubmit={handleNewTreatmentSubmission} >
+        <form onSubmit={this.handleNewTreatmentSubmission} >
           <input
             type='text'
             id='treatment'
-            ref={(input) => {_treatment = treatment;}}
+            ref={(input) => {_treatment = this.treatment;}}
           ></input>
           <DatePicker
             selected={this.state.receivedDate}
             dateForm="MM/DD/YYYY"
             type='text'
             id='received'
-            ref={(input) => {_received = received;}}
+            ref={(input) => {_received = this.received;}}
           />
           <DatePicker
             selected={this.state.dueDate}
             type='text'
             id='due'
-            ref={(input) => {_due = due;}}
+            ref={(input) => {_due = this.due;}}
           />
           <br/>
-          <Button>Add Treatment</Button>
+          <Button type='submit'>Add Treatment</Button>
         </form>
       </div>
     );
   }
-
+}
   NewTreatment.propTypes = {
     onHandleNewTreatmentToList: PropTypes.func
   }
