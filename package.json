@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.2",
+    "firebase": "^5.8.6",
     "react": "^16.8.3",
+    "react-datepicker": "^2.1.0",
     "react-dom": "^16.8.3",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.3.1",

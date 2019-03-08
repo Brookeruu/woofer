@@ -1,4 +1,5 @@
 import React from 'react';
+import NewTreatment from './NewTreatment';
 
 const styles = theme => ({
   root: {
@@ -21,18 +22,17 @@ const hovered = {
 }
 
 
-export default function Treatment() {  
+export default function Treatment() {
   return (
     <div>
       <p
       style={{
         letterSpacing: '2px'
       }}
-      >TREATMENTS 
+      >TREATMENTS
       </p>
     </div>
-    
-  )
-  
-}
 
+  )
+
+}
