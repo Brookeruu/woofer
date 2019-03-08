@@ -17,48 +17,49 @@ class NewTreatment extends React.Component {
   }
 
 
-  function handleNewTreatmentSubmission(event) {
+  handleNewTreatmentSubmission(event) {
     event.preventDefault();
-    props.onHandleNewTreatmentToList({treatment: _treatment.value, dog: 'Jupiter', _received.value, _due.value, id: v4()})
+    props.onHandleNewTreatmentToList({treatment: _treatment.value, dog: 'Jupiter', received: _received.value, due: _due.value, id: v4()})
   }
 
-  function handleReceivedDate(date) {
+  handleReceivedDate(date) {
     this.setDate({
       receivedDate: date
     })
   }
-
-  return(
-    <div>
-      <form onSubmit={handleNewTreatmentSubmission} >
-        <input
-          type='text'
-          id='treatment'
-          ref={(input) => {_treatment = treatment;}}
-        />
-        <DatePicker
-          selected={this.state.receivedDate}
-          dateForm="MM/DD/YYYY"
-          type='text'
-          id='received'
-          ref={(input) => {_received = received;}}
-        />
-        <DatePicker
-          selected={this.state.dueDate}
-          type='text'
-          id='due'
-          ref={(input) => {_due = due;}}
-        />
-        <br>
-        <Button>Add Treatment</Button>
-      </form>
-    </div>
-  );
+  render() {
+    return(
+      <div>
+        <form onSubmit={handleNewTreatmentSubmission} >
+          <input
+            type='text'
+            id='treatment'
+            ref={(input) => {_treatment = treatment;}}
+          ></input>
+          <DatePicker
+            selected={this.state.receivedDate}
+            dateForm="MM/DD/YYYY"
+            type='text'
+            id='received'
+            ref={(input) => {_received = received;}}
+          />
+          <DatePicker
+            selected={this.state.dueDate}
+            type='text'
+            id='due'
+            ref={(input) => {_due = due;}}
+          />
+          <br/>
+          <Button>Add Treatment</Button>
+        </form>
+      </div>
+    );
+  }
 
   NewTreatment.propTypes = {
     onHandleNewTreatmentToList: PropTypes.func
   }
 
-}
+
 
 export default NewTreatment;
