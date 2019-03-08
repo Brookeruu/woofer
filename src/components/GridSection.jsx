@@ -69,53 +69,74 @@ class GridSection extends React.Component {
         }}
       >
         <div className={classes.root, classes.titles}>
+        <style> {`
+          .gridHover-toggle {
+            padding: theme.spacing.unit * 1;
+            text-align: center;
+            color: #808080;
+            border: solid 5px #c38d9e;
+            border-radius: 15px;
+            min-height: 250px;
+            min-width: 300px;
+            margin: auto;
+          }
+          .gridHover-toggle:hover {
+            border: solid 5px #6bbaa7;
+            min-height: 250px;
+            min-width: 300px;
+          }
+        `}</style>
           <Grid container spacing={24}>
             <Grid item sm>
                 <Paper
                   id="treatments"
-                  className={classes.paper}
+                  className={classes.paper, "gridHover-toggle"}
                   >
-                  <GridWrapper>
-                  <img className={classes.icon} src={pills}></img>
-                  <TreatmentControl />
-                  </GridWrapper>
+
+                    <img className={classes.icon} src={pills}></img>
+                    <TreatmentControl />
+
                 </Paper>
             </Grid>
+
             <Grid item sm>
               <Paper
                 id="vaccines"
-                className={classes.paper}
+                className={classes.paper, "gridHover-toggle"}
                 >
-                <GridWrapper>
+
                   <img className={classes.icon} src={syringe}></img>
                   <Vaccine />
-                </GridWrapper>
+              
               </Paper>
             </Grid>
+
             <Grid item sm>
               <Paper
-                className={classes.paper}>
-                <GridWrapper>
+                className={classes.paper, "gridHover-toggle"}>
+
                 <img className={classes.icon} src={stethoscope}></img>
                 <VetVisit />
-                </GridWrapper>
+              
               </Paper>
             </Grid>
+
             <Grid item sm>
               <Paper
-                className={classes.paper}>
-                <GridWrapper>
+                className={classes.paper, "gridHover-toggle"}>
+
                 <img className={classes.icon} src={notes}></img>
                 <Notes />
-                </GridWrapper>
+              
               </Paper>
             </Grid>
+
             <Grid item xs={12}>
-              <Paper className={classes.paper}>
-              <GridWrapper>
+              <Paper className={classes.paper, "gridHover-toggle"}>
+
               <img className={classes.icon} src={calendar}></img>
               <Calendar />
-              </GridWrapper>
+            
               </Paper>
             </Grid>
           </Grid>
