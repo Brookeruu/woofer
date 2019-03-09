@@ -19,18 +19,34 @@ class NewTreatment extends React.Component {
       receivedDate: null,
       dueDate: null
     }
+    this.handleReceivedDate = this.handleReceivedDate.bind(this);
+    this.handleDueDate = this.handleDueDate.bind(this);
   };
 
   handleNewTreatmentSubmission(event) {
     event.preventDefault();
-    this.props.onHandleNewTreatmentToList({treatment: _treatment.value, dog: 'Jupiter', received: _received.value, due: _due.value, id: v4()})
+    this.onHandleNewTreatmentToList({treatment: _treatment.value, dog: 'Jupiter', received: _received.value, due: _due.value, id: v4()})
+    console.log(this)
   }
 
   handleReceivedDate(date) {
-    this.setDate({
+    this.setState({
       receivedDate: date
     })
   }
+
+  handleDueDate(date) {
+    this.setState({
+      dueDate: date
+    })
+  }
+
+  handleSubmit(e) {
+      e.preventDefault();
+      let receiveDate = this.state.receivedDate
+      console.log("test: handle submit");
+  }
+
   render() {
     return(
       <div>
@@ -42,29 +58,39 @@ class NewTreatment extends React.Component {
             ref={(input) => {_treatment = this.treatment;}}
           ></input>
           <br/>
+          <label>Date given: </label>
           <DatePicker
             selected={this.state.receivedDate}
+            onChange={this.handleReceivedDate}
+            name="receivedDate"
             dateForm="MM/DD/YYYY"
             type='text'
             id='received'
             ref={(input) => {_received = this.received;}}
           />
           <br/>
+          <label>Next due date: </label>
           <DatePicker
             selected={this.state.dueDate}
+            onChange={this.handleDueDate}
+            name="dueDate"
+            dateForm="MM/DD/YYYY"
             type='text'
             id='due'
             ref={(input) => {_due = this.due;}}
           />
           <br/>
-          <Button type='submit'>Submit</Button>
+          <Button
+          type='submit'
+          >Submit</Button>
         </form>
       </div>
     );
   }
 }
   NewTreatment.propTypes = {
-    onHandleNewTreatmentToList: PropTypes.func
+    // onHandleNewTreatmentToList: PropTypes.func,
+    onShowNewTreatmentForm: PropTypes.func
   }
 
 

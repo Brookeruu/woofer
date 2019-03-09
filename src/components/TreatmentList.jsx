@@ -31,9 +31,9 @@ export default function TreatmentList(props) {
         key={index}
       />
       )}
-      <button
+      <Button
         onClick={props.onShowNewTreatmentForm}
-      >Add New Treatment</button>
+      >Add New Treatment</Button>
 
     </div>
     )
