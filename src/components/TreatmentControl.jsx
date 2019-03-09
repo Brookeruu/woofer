@@ -24,6 +24,7 @@ class TreatmentControl extends React.Component {
   }
 
   handleClickShowNewTreatmentForm() {
+    console.log("TEST");
     this.setState({newTreatmentFormVisible: true});
   }
 
@@ -31,13 +32,13 @@ class TreatmentControl extends React.Component {
 
     let currentlyVisibleTreatments = null;
     if(this.state.treatmentListVisible) {
-      currentlyVisibleTreatments = <TreatmentList  onShowNewTreatmentForm={this.props.handleClickShowNewTreatmentForm} />
+      currentlyVisibleTreatments = <TreatmentList  onShowNewTreatmentForm={this.handleClickShowNewTreatmentForm} />
     } else {
       currentlyVisibleTreatments = null
     }
 
     let currentlyVisibleForm = null;
-    if((this.state.newTreatmentFormVisible === true) && (this.state.treatmentListVisible === true)) {
+    if((this.state.newTreatmentFormVisible === true)) {
       currentlyVisibleForm = <NewTreatment />
     } else {
       currentlyVisibleForm = null
