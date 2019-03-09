@@ -11,6 +11,22 @@ let _dog = 'Jupiter';
 let _received = null;
 let _due = null;
 
+const labelStyle = {
+  color: '#808080',
+  fontSize: '30px',
+  textTransform: 'uppercase',
+  letterSpacing: '1.5px',
+  textAlign: 'left'
+}
+
+const dateInput = {
+  width: '50%',
+  minHeight: '20px',
+  padding: '12px 20px',
+  margin: '8px 0',
+  borderRadius: '3px'
+}
+
 class NewTreatment extends React.Component {
 
   constructor(props) {
@@ -25,7 +41,15 @@ class NewTreatment extends React.Component {
 
   handleNewTreatmentSubmission(event) {
     event.preventDefault();
-    this.onHandleNewTreatmentToList({treatment: _treatment.value, dog: 'Jupiter', received: _received.value, due: _due.value, id: v4()})
+      console.log(_treatment.value);
+      console.log(_dog.value);
+      console.log(_received.value);
+      console.log(_due.value);
+      _treatment.value = '';
+      _dog.value = '';
+      _received.value = '';
+      _due.value = '';
+    // this.onHandleNewTreatmentToList({treatment: _treatment.value, dog: 'Jupiter', received: _received.value, due: _due.value, id: v4()})
     console.log(this)
   }
 
@@ -58,7 +82,9 @@ class NewTreatment extends React.Component {
             ref={(input) => {_treatment = this.treatment;}}
           ></input>
           <br/>
-          <label>Date given: </label>
+          <label
+            style={labelStyle}
+          >Date given: </label>
           <DatePicker
             selected={this.state.receivedDate}
             onChange={this.handleReceivedDate}
@@ -69,7 +95,9 @@ class NewTreatment extends React.Component {
             ref={(input) => {_received = this.received;}}
           />
           <br/>
-          <label>Next due date: </label>
+          <label
+            style={labelStyle}
+          >Next due date: </label>
           <DatePicker
             selected={this.state.dueDate}
             onChange={this.handleDueDate}
