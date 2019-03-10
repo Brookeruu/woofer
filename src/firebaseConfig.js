@@ -1,4 +1,5 @@
 import * as firebase from 'firebase';
+import * as firebaseui from 'firebaseui'
 
 const firebaseConfig = {
     apiKey: 'AIzaSyCuuQXccCm7ocYeczsXeRhOazykOEAdwGo',
