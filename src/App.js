@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import User from './components/User.jsx';
-import GridSection from './components/GridSection.jsx';
+import User from './components/User';
+import OAuth from './components/OAuth';
+import GridSection from './components/GridSection';
 import Helmet from 'react-helmet';
+import { Switch, Route, withRouter } from 'react-router-dom';
+
+
 // import { BrowserRouter as Router } from 'react-router-dom';
 // import Navigation from './components/Navigation';
 import './App.css';
-
 
 class App extends Component {
   render() {
@@ -17,9 +20,11 @@ class App extends Component {
           <div
             style={{display: 'flex', flexDirection: 'row'}}
           >
+          <Switch>
+            <Route path='/login' render={()=> <OAuth />} />
+            <Route path='/user' render={() => [<User />, <GridSection />] } />
 
-            <User />
-            <GridSection />
+          </Switch>
         </div>
       </div>
     );
