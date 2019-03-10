@@ -1,4 +1,4 @@
-
+import * as firebase from 'firebase';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyCuuQXccCm7ocYeczsXeRhOazykOEAdwGo',
@@ -9,4 +9,5 @@ const firebaseConfig = {
     messagingSenderId: '460409658546'
 };
 
-export default firebaseConfig;
+firebase.initializeApp(firebaseConfig);
+export default firebase;

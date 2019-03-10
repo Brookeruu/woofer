@@ -1,42 +1,29 @@
-[debug] [2019-03-07T18:25:25.327Z] ----------------------------------------------------------------------
-[debug] [2019-03-07T18:25:25.329Z] Command:       /usr/local/Cellar/node/11.6.0/bin/node /usr/local/bin/firebase init
-[debug] [2019-03-07T18:25:25.330Z] CLI Version:   6.3.1
-[debug] [2019-03-07T18:25:25.330Z] Platform:      darwin
-[debug] [2019-03-07T18:25:25.330Z] Node Version:  v11.6.0
-[debug] [2019-03-07T18:25:25.332Z] Time:          Thu Mar 07 2019 10:25:25 GMT-0800 (Pacific Standard Time)
-[debug] [2019-03-07T18:25:25.332Z] ----------------------------------------------------------------------
+[debug] [2019-03-09T23:14:26.259Z] ----------------------------------------------------------------------
+[debug] [2019-03-09T23:14:26.261Z] Command:       /usr/local/Cellar/node/11.6.0/bin/node /usr/local/bin/firebase serve --only hosting
+[debug] [2019-03-09T23:14:26.262Z] CLI Version:   6.3.1
+[debug] [2019-03-09T23:14:26.262Z] Platform:      darwin
+[debug] [2019-03-09T23:14:26.262Z] Node Version:  v11.6.0
+[debug] [2019-03-09T23:14:26.263Z] Time:          Sat Mar 09 2019 15:14:26 GMT-0800 (Pacific Standard Time)
+[debug] [2019-03-09T23:14:26.263Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2019-03-07T18:25:25.341Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2019-03-07T18:25:25.341Z] > authorizing via signed-in user
-[info] 
-     ######## #### ########  ######## ########     ###     ######  ########
-     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
-     ######    ##  ########  ######   ########  #########  ######  ######
-     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
-     ##       #### ##     ## ######## ########  ##     ##  ######  ########
-
-You're about to initialize a Firebase project in this directory:
-
-  /Users/brookeperry/Desktop/Devs/react/woofer
-
-[info] 
-=== Project Setup
-[info] 
-[info] First, let's associate this project directory with a Firebase project.
-[info] You can create multiple project aliases by running firebase use --add, 
-[info] but for now we'll just set up a default project.
-[info] 
-[debug] [2019-03-07T18:25:38.742Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2019-03-07T18:25:38.742Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+[debug] [2019-03-09T23:14:26.275Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-03-09T23:14:26.275Z] > authorizing via signed-in user
+[debug] [2019-03-09T23:14:26.275Z] [iam] checking project woofer-aa923 for permissions ["firebase.projects.get"]
+[debug] [2019-03-09T23:14:26.277Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-03-09T23:14:26.278Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
  <request body omitted>
-[debug] [2019-03-07T18:25:38.892Z] <<< HTTP RESPONSE 200
-[debug] [2019-03-07T18:25:38.901Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?page_size=100  
+[debug] [2019-03-09T23:14:26.440Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-09T23:14:26.451Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/woofer-aa923:testIamPermissions  
+
+[debug] [2019-03-09T23:14:26.649Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-09T23:14:26.650Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/woofer-aa923  
  
-[debug] [2019-03-07T18:25:39.452Z] <<< HTTP RESPONSE 200
-[info] i  Using project brandless-clone (brandless-clone)
+[debug] [2019-03-09T23:14:26.860Z] <<< HTTP RESPONSE 200
 [info] 
-=== Database Setup
+[info] === Serving from '/Users/brookeperry/Desktop/Devs/react/woofer'...
 [info] 
-[info] Firebase Realtime Database Rules allow you to define how your data should be
-[info] structured and when your data can be read from and written to.
-[info] 
+[debug] [2019-03-09T23:14:26.863Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/460409658546/clients/_:getWebAppConfig  
+ 
+[debug] [2019-03-09T23:14:27.137Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000

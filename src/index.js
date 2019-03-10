@@ -7,6 +7,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import firebaseConfig from './firebaseConfig';
 import * as firebase from 'firebase';
+// import Firebase from 'firebase';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
@@ -15,8 +16,18 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-firebase.initializeApp(firebaseConfig);
+// firebase.initializeApp(firebaseConfig);
+// const pets = firebase.database().ref('pets');
 
-export default {
-  firebaseConfig: firebaseConfig
-};
+// export function addPet(_name, _microchip, _age, _image) {
+//   return () => pets.push({
+//     name: _name,
+//     microchip: _microchip,
+//     age: _age,
+//     image: _image
+//   });
+// }
+
+// export default {
+//   firebaseConfig: firebaseConfig
+// };
