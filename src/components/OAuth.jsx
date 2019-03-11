@@ -10,8 +10,22 @@ const styles = {
 }
 
 
-
 const uiConfig = {
+  callbacks: {
+  signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+    // User successfully signed in.
+    // Return type determines whether we continue the redirect automatically
+    // or whether we leave that to developer to handle.
+    return true;
+    // console.log("hello test2");
+  },
+
+  uiShown: function() {
+      // The widget is rendered.
+      // Hide the loader.
+      document.getElementById('loader').style.display = 'none';
+    }
+  },
   signInSuccessUrl: '<http://localhost:3000/user>',
   signInOptions: [
     {
@@ -25,6 +39,7 @@ const uiConfig = {
 
 // Initialize the FirebaseUI Widget using Firebase.
 const ui = new firebaseui.auth.AuthUI(firebase.auth());
+
 // The start method will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig);
 
@@ -44,8 +59,8 @@ function initApp() {
       // User is signed in.
       const displayName = user.displayName;
       const email = user.email;
-      const emailVerified = user.emailVerified;
-      const providerData = user.providerData;
+      // const emailVerified = user.emailVerified;
+      // const providerData = user.providerData;
       user.getIdToken().then(function(accessToken) {
         document.getElementById('sign-in-status').textContent = ('Signed in as ' + displayName);
         document.getElementById('sign-in').textContent = 'Sign out';
@@ -75,16 +90,17 @@ export default function OAuth() {
   return(
     <div>
       <div
-      id="firebaseui-auth-container"
+      id='firebaseui-auth-container'
       style={styles}>
         <p>OAuth Component is connected!</p>
-        <div id="sign-in-status"></div>
-        <div id="sign-in"></div>
-        <pre id="account-details"></pre>
+        <div id="loader">Loading...</div>
+        <div id='sign-in-status'></div>
+        <div id='sign-in'></div>
+        <pre id='account-details'></pre>
 
 
     <Button>
-    <img src={googleG} alt="google icon" style={googleIcon}></img>
+    <img src={googleG} alt='google icon' style={googleIcon}></img>
     Sign in with Google</Button>
 
       </div>
