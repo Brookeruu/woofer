@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import User from './components/User';
 import OAuth from './components/OAuth';
+import Error404 from './components/Error404';
 import GridSection from './components/GridSection';
 import Helmet from 'react-helmet';
 import { Switch, Route, withRouter } from 'react-router-dom';
@@ -23,6 +24,7 @@ class App extends Component {
           <Switch>
             <Route path='/login' render={()=> <OAuth />} />
             <Route path='/user' render={() => [<User />, <GridSection />] } />
+            <Route path='/error404' render={() => <Error404 />} />
 
           </Switch>
         </div>
