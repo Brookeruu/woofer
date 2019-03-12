@@ -38,7 +38,7 @@ export default function Petlist () {
 
         )}
 
-          <NewPet />
+
       </div>
     </div>
   )

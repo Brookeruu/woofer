@@ -5,6 +5,7 @@ import Button from './styled-components/Button';
 import googleG from '../images/googleG.png';
 import PropTypes from 'prop-types';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import NewPet from './NewPet'
 
 const gapi = window.gapi;
 
@@ -38,13 +39,15 @@ const showUserInfo = {
   display: 'block'
 }
 
-export default class OAuth extends React.Component {
+class OAuth extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      user: '',
       userName: 'Please sign in',
-      userID: 'n/a',
-      signedIn: false
+      userId: 'n/a',
+      signedIn: false,
+      pets: {}
     }
     this.hanldeSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
@@ -53,9 +56,12 @@ export default class OAuth extends React.Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+        this.setState({user: user});
         this.setState({userName: user.displayName});
         this.setState({userId: user.uid});
         this.setState({signedIn: true});
+        this.sendUserId();
+        this.getPets();
       }
     });
   }
@@ -68,12 +74,9 @@ export default class OAuth extends React.Component {
       let user = result.user;
       // ...
     }).catch(function(error) {
-      // Handle Errors here.
       let errorCode = error.code;
       let errorMessage = error.message;
-      // The email of the user's account used.
       let email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
       let credential = error.credential;
       // ...
     });
@@ -87,15 +90,29 @@ export default class OAuth extends React.Component {
     });
   };
 
-  handleDisplay() {
-    // if (signInButtonDisplay !== buttonHidden ) {
-      signInButtonDisplay = buttonHidden;
-    // };
-  };
+  sendUserId() {
+    let userId = this.state.user.uid
+    this.props.onUserIdToState(userId);
+  }
+
+  getPets() {
+    let newPetState;
+    let userPets = firebase.database().ref('pets/' + this.state.user.uid);
+    userPets.on('value', (snap) => {
+      newPetState = Object.assign({}, snap.val());
+      this.setState({pets: newPetState});
+      console.log(this.state.pets);
+
+    }, function(errorObject) {
+      console.log('The read failed:' + errorObject.code);
+    });
+
+  }
 
   render() {
+
     return(
-      <div>
+      <div style={styles}>
         <Button
           style={signInButtonDisplay}
           onClick={this.handleSignIn}
@@ -107,76 +124,21 @@ export default class OAuth extends React.Component {
           <p>oAuth2 is connected!</p>
           <p id="signIn">User Name: {this.state.userName}</p>
           <p>User Id : {this.state.userId}</p>
-          <Button onClick={this.handleSignOut}>Sign Out</Button>
+          <p onClick={this.handleSignOut}>Sign Out</p>
         </div>
+
+
       </div>
     )
   }
 }
 
+OAuth.propTypes = {
+  petId: PropTypes.string
+}
 
+export default OAuth;
 
-
-// const uiConfig = {
-//   callbacks: {
-//   signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-//     // User successfully signed in.
-//     // Return type determines whether we continue the redirect automatically
-//     // or whether we leave that to developer to handle.
-//     return true;
-//   },
-//
-//   uiShown: function() {
-//       // The widget is rendered.
-//       // Hide the loader.
-//       document.getElementById('loader').style.display = 'none';
-//     }
-//   },
-//   signInSuccessUrl: '/login',
-//   signInOptions: [
-//     {
-//       provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-//       scopes: [
-//         'https://www.googleapis.com/auth/calendar.events'
-//       ]
-//     }
-//   ]
-// };
-//
-// // Initialize the FirebaseUI Widget using Firebase.
-// const ui = new firebaseui.auth.AuthUI(firebase.auth());
-//
-// // The start method will wait until the DOM is loaded.
-// ui.start('#firebaseui-auth-container', uiConfig);
-//
-// const googleIcon = {
-//   maxHeight: '30px',
-//   marginTop: '5px',
-//   marginRight: '25px'
-// }
-//
-// //   window.addEventListener('load', function() {
-// //     initApp()
-// //   });
-//
-// export default class OAuth extends React.Component{
-//
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       signedIn: false,
-//       userName: '',
-//       userId: ''
-//       }
-//       this.handleUserSignedIn = this.handleUserSignedIn.bind(this);
-//       this.initApp = this.initApp.bind(this);
-//   }
-//
-//
-//   componentDidMount(){
-//       this.initApp();
-//   }
-//
 //   initApp() {
 //
 //     let uid;
@@ -209,22 +171,7 @@ export default class OAuth extends React.Component {
 //   //   this.ui.start('#firebaseui-auth-container', uiConfig);
 //   //
 //   // }
-//
-//   handleUserSignedIn(user) {
-//     if (user) {
-//       this.setState({userName: user.displayName});
-//       this.setState({signedIn: true});
-//       this.setState({userId: user.uid});      // console.log(displayName);
-//       console.log(this.state);
-//     } else {
-//       this.setState({signedIn: false})
-//     }
-//   }
-//
-//   handleSignOut() {
-//     firebase.auth().signOut();
-//   }
-//
+
 //   render(){
 //
 //     return(
