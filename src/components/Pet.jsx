@@ -15,7 +15,9 @@ const pStyle = {
 
 const icon = {
   height: '30px',
-  marginBottom: '20px'
+  marginBottom: '12px',
+  marginLeft: '-10px',
+  transform: 'rotate(13deg)'
 }
 
 export default function Pet(props) {
