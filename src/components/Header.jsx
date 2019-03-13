@@ -14,7 +14,7 @@ export default function Header() {
 
   return(
     <div
-            style={{
+      style={{
         position: 'fixed',
         width: '100%',
         height: '100px',
@@ -30,7 +30,7 @@ export default function Header() {
         fontSize: '120px',
         position: 'fixed',
         top: '-100px',
-        left: '30px',
+        left: '50px',
         letterSpacing: '3px'
       }}
     >WOOFER

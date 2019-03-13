@@ -30,7 +30,7 @@ export default function Pet(props) {
             width: '170px',
             border: 'solid 3px white',
             borderRadius: '50%',
-            marginTop: '30px',
+            marginTop: '-20px',
             marginBottom: '-30px'
           }}
       ></img>

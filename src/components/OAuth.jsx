@@ -27,10 +27,12 @@ let signInButtonDisplay;
 
 let userInfoDisplay = {
   position: 'fixed',
-  marginTop: '-30px',
-  marginLeft: '-80px',
-  color: 'white',
-  textTransform: 'uppercase'
+  marginTop: '-60px',
+  right: '50px',
+  color: 'black',
+  textTransform: 'uppercase',
+  fontSize: '30px',
+  letterSpacing: '1px'
 
 }
 
@@ -119,6 +121,15 @@ class OAuth extends React.Component {
 
     return(
       <div style={styles}>
+      <style>{`
+        .signOut-toggle {
+          color: black;
+        }
+        .signOut-toggle:hover {
+          text-decoration: underline;
+        }
+      `}
+      </style>
         <Button
           style={{
             position: 'fixed',
@@ -134,9 +145,10 @@ class OAuth extends React.Component {
 
         <div style={userInfoDisplay}>
 
-          <p id="signIn">Hi ,  {this.state.userName}
+          <p id="signIn">Hi,   {this.state.userName}
           <span
-          style={{marginLeft: '170px'}}
+          className={"signOut-toggle"}
+          style={{marginLeft: '90px'}}
            onClick={this.handleSignOut}>Sign Out</span></p>
         </div>
 
