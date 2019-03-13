@@ -3,21 +3,22 @@ import User from './components/User';
 import OAuth from './components/OAuth';
 import NewPet from './components/NewPet';
 import Error404 from './components/Error404';
+import Header from './components/Header';
 import GridSection from './components/GridSection';
 import Helmet from 'react-helmet';
 import { Switch, Route, withRouter } from 'react-router-dom';
 
+import './App.css';
 
 // import { BrowserRouter as Router } from 'react-router-dom';
 // import Navigation from './components/Navigation';
-import './App.css';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      masterUserId: null,
-      masterPetId: null
+      masterUserId: '',
+      masterPetId: ''
     }
     this.handleUserIdToState = this.handleUserIdToState.bind(this);
     this.handlePetIdToState = this.handlePetIdToState.bind(this);
@@ -37,6 +38,7 @@ class App extends Component {
   render() {
 
     console.log(this.state.masterUserId);
+    console.log(this.state.masterPetId);
     return (
       <div className="App">
       <Helmet>
@@ -46,18 +48,16 @@ class App extends Component {
             style={{display: 'flex', flexDirection: 'row'}}
           >
           <Switch>
-            <Route path='/login' render={()=>
-              <OAuth
-                onUserIdToState={this.handleUserIdToState}
-                petId={this.state.masterPetId}
-              />} />
 
-            <Route path='/' render={() =>
-              [<User />,
-              <GridSection />,
-              <NewPet
-              onPetIdToState={this.handlePetIdToState}
-              userId={this.state.masterUserId}/>] } />
+              <Route exact path='/' render={() =>
+                [<Header />,
+                  <User
+                  onPetIdToState={this.handlePetIdToState}
+                  userId={this.state.masterUserId}
+                   />,
+                <GridSection />,
+              ]} />
+              <Route path='/error404' render={() => <Error404 />} />
             <Route path='/error404' render={() => <Error404 />} />
 
           </Switch>
@@ -66,5 +66,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;

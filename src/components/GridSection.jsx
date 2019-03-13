@@ -61,7 +61,7 @@ class GridSection extends React.Component {
           minHeight: '100vh',
           width: '100vh',
           margin: '20px',
-          marginTop: '0px'
+          marginTop: '110px'
         }}
       >
         <div className={classes.root, classes.titles}>

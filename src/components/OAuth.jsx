@@ -4,7 +4,6 @@ import * as firebaseui from 'firebaseui';
 import Button from './styled-components/Button';
 import googleG from '../images/googleG.png';
 import PropTypes from 'prop-types';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import NewPet from './NewPet'
 
 const gapi = window.gapi;
@@ -25,7 +24,15 @@ const provider = new firebase.auth.GoogleAuthProvider();
 provider.addScope('https://www.googleapis.com/auth/calendar.events');
 
 let signInButtonDisplay;
-let userInfoDisplay;
+
+let userInfoDisplay = {
+  position: 'fixed',
+  marginTop: '-30px',
+  marginLeft: '-80px',
+  color: 'white',
+  textTransform: 'uppercase'
+
+}
 
 const buttonHidden = {
   display: 'none'
@@ -47,7 +54,7 @@ class OAuth extends React.Component {
       userName: 'Please sign in',
       userId: 'n/a',
       signedIn: false,
-      pets: {}
+      pets: []
     }
     this.hanldeSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
@@ -72,13 +79,11 @@ class OAuth extends React.Component {
       let token = result.credential.accessToken;
       // The signed-in user info.
       let user = result.user;
-      // ...
     }).catch(function(error) {
       let errorCode = error.code;
       let errorMessage = error.message;
       let email = error.email;
       let credential = error.credential;
-      // ...
     });
   }
 
@@ -97,12 +102,13 @@ class OAuth extends React.Component {
 
   getPets() {
     let newPetState;
-    let userPets = firebase.database().ref('pets/' + this.state.user.uid);
+    let userPets = firebase.database().ref('pets/' + this.state.userId);
     userPets.on('value', (snap) => {
       newPetState = Object.assign({}, snap.val());
       this.setState({pets: newPetState});
       console.log(this.state.pets);
-
+      console.log(this.props.userPropId)
+      console.log(this.props);
     }, function(errorObject) {
       console.log('The read failed:' + errorObject.code);
     });
@@ -114,27 +120,35 @@ class OAuth extends React.Component {
     return(
       <div style={styles}>
         <Button
-          style={signInButtonDisplay}
+          style={{
+            position: 'fixed',
+            top: '-20px',
+            right: '10px'
+
+          }}
           onClick={this.handleSignIn}
         >
         <img style={googleIcon} src={googleG} alt="Google Icon"></img>
         Sign In with Google
         </Button>
-        <div style={{userInfoDisplay}}>
-          <p>oAuth2 is connected!</p>
-          <p id="signIn">User Name: {this.state.userName}</p>
-          <p>User Id : {this.state.userId}</p>
-          <p onClick={this.handleSignOut}>Sign Out</p>
+
+        <div style={userInfoDisplay}>
+
+          <p id="signIn">Hi ,  {this.state.userName}
+          <span
+          style={{marginLeft: '170px'}}
+           onClick={this.handleSignOut}>Sign Out</span></p>
         </div>
 
-
       </div>
-    )
+    );
   }
 }
 
 OAuth.propTypes = {
-  petId: PropTypes.string
+  petId: PropTypes.string,
+  userPropId: PropTypes.string,
+  onUserIdToState: PropTypes.func
 }
 
 export default OAuth;
