@@ -148,7 +148,7 @@ class OAuth extends React.Component {
           color: black;
         }
         .signOut-toggle:hover {
-          color: red;
+          color: #64A5CB;
         }
       `}
       </style>

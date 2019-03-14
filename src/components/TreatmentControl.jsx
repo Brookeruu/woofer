@@ -1,6 +1,9 @@
 import React from 'react';
 import TreatmentList from './TreatmentList';
 import NewTreatment from './NewTreatment';
+import GridSection from './GridSection';
+import firebase from '../firebaseConfig';
+import PropTypes from 'prop-types';
 // import Button from './styled-components/Button';
 
 class TreatmentControl extends React.Component {
@@ -35,7 +38,12 @@ class TreatmentControl extends React.Component {
 
     let currentlyVisibleTreatments = null;
     if(this.state.treatmentListVisible) {
-      currentlyVisibleTreatments = <TreatmentList  onShowNewTreatmentForm={this.handleClickShowNewTreatmentForm} />
+      currentlyVisibleTreatments = <TreatmentList  onShowNewTreatmentForm={this.handleClickShowNewTreatmentForm}
+      onUserIdToState={this.props.onUserIdToState}
+      onPetIdToState={this.props.onPetIdToState}
+      onPetListToState={this.props.onPetListToState}
+      userId={this.props.userId}
+      petList={this.props.petList} />
     } else {
       currentlyVisibleTreatments = null;
     }
@@ -43,7 +51,13 @@ class TreatmentControl extends React.Component {
     let currentlyVisibleForm = null;
     if((this.state.newTreatmentFormVisible)) {
       currentlyVisibleForm = <NewTreatment
-      onShowNewTreatmentForm={this.handleClickShowNewTreatmentForm}/>
+      onShowNewTreatmentForm={this.handleClickShowNewTreatmentForm}
+      onUserIdToState={this.props.onUserIdToState}
+      onPetIdToState={this.props.onPetIdToState}
+      onPetListToState={this.props.onPetListToState}
+      userId={this.props.userId}
+      petList={this.props.petList}
+      />
     } else {
       currentlyVisibleForm = null
     }
@@ -63,7 +77,6 @@ class TreatmentControl extends React.Component {
               letterSpacing: '2px'
             }}
             onClick={this.handleClickTreatmentList}
-
           >
           TREATMENTS
           </p>
@@ -73,5 +86,13 @@ class TreatmentControl extends React.Component {
     );
   }
 }
+
+TreatmentControl.propTypes = {
+  onUserIdToState: PropTypes.func,
+  onPetIdToState: PropTypes.func,
+  onPetListToState: PropTypes.func,
+  userId: PropTypes.string,
+  petList: PropTypes.object
+};
 
 export default TreatmentControl;

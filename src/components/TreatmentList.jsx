@@ -39,7 +39,11 @@ export default function TreatmentList(props) {
     )
   }
 
-
 TreatmentList.propTypes = {
-  onShowNewTreatmentForm: PropTypes.func
+  onShowNewTreatmentForm: PropTypes.func,
+  onUserIdToState: PropTypes.func,
+  onPetIdToState: PropTypes.func,
+  onPetListToState: PropTypes.func,
+  userId: PropTypes.string,
+  petList: PropTypes.object
 }

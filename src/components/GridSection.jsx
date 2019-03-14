@@ -3,15 +3,11 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-// import Treatment from './Treatment';
-// import TreatmentList from './TreatmentList';
 import TreatmentControl from './TreatmentControl';
 import Vaccine from './Vaccine';
 import VetVisit from './VetVisit';
 import Notes from './Notes';
-// import Calendar from './Calendar';
 import CalendarControl from './CalendarControl';
-// import GridWrapper from './styled-components/GridWrapper';
 import pills from '../images/pills.png';
 import syringe from '../images/syringe.png';
 import stethoscope from '../images/stethoscope.png';
@@ -91,7 +87,13 @@ class GridSection extends React.Component {
                   >
 
                     <img className={classes.icon} src={pills} alt="pills icon"></img>
-                    <TreatmentControl />
+                    <TreatmentControl
+                      onUserIdToState={this.props.onUserIdToState}
+                      onPetIdToState={this.props.onPetIdToState}
+                      onPetListToState={this.props.onPetListToState}
+                      userId={this.props.userId}
+                      petList={this.props.petList}
+                     />
 
                 </Paper>
             </Grid>
@@ -145,6 +147,11 @@ class GridSection extends React.Component {
 
 GridSection.propTypes = {
   classes: PropTypes.object.isRequired,
+  onUserIdToState: PropTypes.func,
+  onPetIdToState: PropTypes.func,
+  onPetListToState: PropTypes.func,
+  userId: PropTypes.string,
+  petList: PropTypes.object
 };
 
 export default withStyles(styles)(GridSection)

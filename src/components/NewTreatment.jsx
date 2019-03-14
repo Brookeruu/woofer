@@ -5,6 +5,8 @@ import Button from './styled-components/Button';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Treatment from './Treatment';
+import firebase from '../firebaseConfig.js';
+
 
 let _treatment = null;
 let _dog = 'Jupiter';
@@ -39,35 +41,43 @@ class NewTreatment extends React.Component {
       receivedDate: null,
       dueDate: null,
       dog: '',
-      treatment: ''
+      treatment: '',
+      userId: ''
     }
     this.handleNewTreatmentSubmission = this.handleNewTreatmentSubmission.bind(this);
     this.handleReceivedDate = this.handleReceivedDate.bind(this);
     this.handleDueDate = this.handleDueDate.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   };
+
+  handleChange(e) {
+  this.setState({
+    [e.target.name]: e.target.value
+    });
+  }
 
   handleNewTreatmentSubmission(event) {
     event.preventDefault();
-      // let receiveDate = this.state.receivedDate
-      // console.log(receiveDate);
-      console.log(_treatment.value);
-      console.log(_dog);
-      console.log(_received);
-      console.log(_due);
+    this.setState({dog: _dog});
+    this.setState({treatment: _treatment.value})
+    const treatmentRef = firebase.database().ref('treatments/' + this.props.userId);
+    const treatment = {
+      treatment: _treatment.value,
+      receivedDate: inputDate1,
+      dueDate: inputDate2,
+      userId: this.props.userId
+    }
+    console.log(treatment);
+
+    treatmentRef.push(treatment);
       this.setState({dog: _dog});
       this.setState({treatment: _treatment.value})
-
       console.log(this.state);
-      // _treatment.value = '';
-      // _received.value = '';
-      // _due.value = '';
-    // this.onHandleNewTreatmentToList({treatment: _treatment.value, dog: 'Jupiter', received: _received.value, due: _due.value, id: v4()})
-  }
+    }
 
-  componentDidUpdate() {
-    // this.handleNewTreatmentSubmission();
+  componentWillReceiveProps(nextProps) {
+    this.setState({userId: this.props.userId})
   }
-
 
   handleReceivedDate(date) {
     this.setState({receivedDate: date});
@@ -85,6 +95,9 @@ class NewTreatment extends React.Component {
     return(
       <div>
         <form onSubmit={this.handleNewTreatmentSubmission} >
+        <label
+          style={labelStyle}>
+          Treatment Name </label>
           <input
             placeholder="Treatment Name"
             type='text'
@@ -133,10 +146,15 @@ class NewTreatment extends React.Component {
     );
   }
 }
-  NewTreatment.propTypes = {
-    // onHandleNewTreatmentToList: PropTypes.func,
-    onShowNewTreatmentForm: PropTypes.func
-  }
+
+NewTreatment.propTypes = {
+  onUserIdToState: PropTypes.func,
+  onPetIdToState: PropTypes.func,
+  onPetListToState: PropTypes.func,
+  userId: PropTypes.string,
+  petList: PropTypes.object
+}
+
 
 
 
