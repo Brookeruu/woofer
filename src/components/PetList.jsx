@@ -7,33 +7,23 @@ import phantom from './../images/phantom.png';
 import jupie from './../images/dogpark.jpg';
 import jupiderp from './../images/jup.jpg';
 
-const petList = [
-  {
-    name: 'Jupiter',
-    microchip: '1234567',
-    age: '2',
-    image: jupiderp
-  },
-  {
-    name: 'Phantom',
-    microchip: '7654321',
-    age: '7',
-    image: phantom
-  }
-]
 
 export default function Petlist (props) {
+
+let dogList = (props.petList)
+console.log("dogList", dogList);
 console.log(props.petList);
 
   return (
     <div>
       <div>
-        {petList.map((pet, index) =>
+
+        {Object.keys(dogList).map(index =>
           <Pet
-              name={pet.name}
-              microchip={pet.microchip}
-              age={pet.age}
-              image={pet.image}
+              name={dogList[index].name}
+              microchip={dogList[index].microchip}
+              age={dogList[index].age}
+              image={dogList[index].image}
               key={index}
               />
         )}
