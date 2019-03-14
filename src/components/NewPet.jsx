@@ -73,8 +73,7 @@ NewPet.propTypes = {
   onPetIdToState: PropTypes.func,
   onPetListToState: PropTypes.func,
   userId: PropTypes.string,
-  // petId: PropTypes.object,
-  petList: PropTypes.array
+  petList: PropTypes.object
 }
 
 export default NewPet;

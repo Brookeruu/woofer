@@ -22,14 +22,12 @@ const petList = [
   }
 ]
 
-
 export default function Petlist (props) {
 console.log(props.petList);
 
   return (
     <div>
       <div>
-
         {petList.map((pet, index) =>
           <Pet
               name={pet.name}
@@ -38,10 +36,7 @@ console.log(props.petList);
               image={pet.image}
               key={index}
               />
-
         )}
-
-
       </div>
     </div>
   )
@@ -52,5 +47,5 @@ Petlist.propTypes = {
   onPetIdToState: PropTypes.func,
   onPetListToState: PropTypes.func,
   userId: PropTypes.string,
-  petList: PropTypes.array
+  petList: PropTypes.object
 }

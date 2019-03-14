@@ -5,7 +5,7 @@ import GridSection from './GridSection';
 import PropTypes from 'prop-types';
 
 export default function Homepage(props) {
-console.log(props.petList);
+console.log(props);
   return (
     <div>
       <Header
@@ -39,5 +39,5 @@ Homepage.propTypes = {
   onPetIdToState: PropTypes.func,
   onPetListToState: PropTypes.func,
   userId: PropTypes.string,
-  petList: PropTypes.array
+  petList: PropTypes.object
 }

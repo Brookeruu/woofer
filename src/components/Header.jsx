@@ -11,7 +11,7 @@ const icon = {
 }
 
 export default function Header(props) {
-
+console.log("header pet list", props);
   return(
     <div
       style={{
@@ -44,7 +44,6 @@ export default function Header(props) {
     />
 
     </div>
-
   )
 }
 
@@ -53,5 +52,5 @@ Header.propTypes = {
   onPetIdToState: PropTypes.func,
   onPetListToState: PropTypes.func,
   userId: PropTypes.string,
-  petList: PropTypes.array
+  petList: PropTypes.object
 }

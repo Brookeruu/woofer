@@ -18,11 +18,11 @@ class App extends Component {
     this.state = {
       masterUserId: '',
       masterPetId: '',
-      masterPetList: []
+      masterPetList: {}
     }
     this.handleUserIdToState = this.handleUserIdToState.bind(this);
     this.handlePetIdToState = this.handlePetIdToState.bind(this);
-    this.handlePetListToState = this.handlePetIdToState.bind(this);
+    this.handlePetListToState = this.handlePetListToState.bind(this);
   }
 
   handleUserIdToState(userId) {
@@ -61,7 +61,7 @@ class App extends Component {
                 onUserIdToState={this.handleUserIdToState}
                 onPetIdToState={this.handlePetIdToState}
                 userId={this.state.masterUserId}
-                petId={this.state.masterPetId}
+                // petId={this.state.masterPetId}
                 petList={this.state.masterPetList}
               />} />
 

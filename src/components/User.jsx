@@ -51,5 +51,5 @@ User.propTypes = {
   onPetIdToState: PropTypes.func,
   onPetListToState: PropTypes.func,
   userId: PropTypes.string,
-  petList: PropTypes.array
+  petList: PropTypes.object
 }
