@@ -27,9 +27,19 @@ export default function User(props) {
           }}
         >
       </h3>
-        <PetList />
-        <NewPet
+        <PetList
+          onUserIdToState={props.onUserIdToState}
+          onPetIdToState={props.onPetIdToState}
+          onPetListToState={props.onPetListToState}
           userId={props.userId}
+          petList={props.petList}
+        />
+        <NewPet
+          onUserIdToState={props.onUserIdToState}
+          onPetIdToState={props.onPetIdToState}
+          onPetListToState={props.onPetListToState}
+          userId={props.userId}
+          petList={props.petList}
         />
       </div>
     </div>
@@ -37,5 +47,9 @@ export default function User(props) {
 }
 
 User.propTypes = {
-  userId: PropTypes.string
+  onUserIdToState: PropTypes.func,
+  onPetIdToState: PropTypes.func,
+  onPetListToState: PropTypes.func,
+  userId: PropTypes.string,
+  petList: PropTypes.array
 }

@@ -55,26 +55,38 @@ class OAuth extends React.Component {
       userName: 'Please sign in',
       userId: 'n/a',
       signedIn: false,
-      pets: []
+      pets: {}
     }
     this.hanldeSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
+    this.getPets = this.getPets.bind(this);
   }
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.setState({user: user});
-        this.setState({userName: user.displayName});
-        this.setState({userId: user.uid});
-        this.setState({signedIn: true});
-        this.sendUserId();
-        console.log(hideButton);
-        console.log(this.state.user);
-        this.getPets();
+        this.setState({
+          user: user,
+          userName: user.displayName,
+          userId: user.uid,
+          signedIn: true},
+        () => {
+          this.sendUserId();
+          this.getPets();
+        });
       }
     });
   }
+
+  componentWillUpdate(newProps, newState) {
+    console.log("newState", newState);
+    console.log("newProp", newProps);
+  }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log("prevState", prevState);
+  //   console.log("prevProp", prevProps);
+  // }
 
   handleSignIn() {
     firebase.auth().signInWithPopup(provider).then(function(result) {
@@ -82,6 +94,7 @@ class OAuth extends React.Component {
       let token = result.credential.accessToken;
       // The signed-in user info.
       let user = result.user;
+
     }).catch(function(error) {
       let errorCode = error.code;
       let errorMessage = error.message;
@@ -95,12 +108,11 @@ class OAuth extends React.Component {
       this.setState({userName: ''});
       this.setState({userId: ''});
       this.setState({signedIn: false});
-
     });
   };
 
   sendUserId() {
-    let userId = this.state.user.uid
+    let userId = this.state.user.uid;
     this.props.onUserIdToState(userId);
   }
 
@@ -109,14 +121,14 @@ class OAuth extends React.Component {
     let userPets = firebase.database().ref('pets/' + this.state.userId);
     userPets.on('value', (snap) => {
       newPetState = Object.assign({}, snap.val());
-      this.setState({pets: newPetState});
-      console.log(this.state.pets);
-      console.log(this.props.userPropId)
-      console.log(this.props);
-    }, function(errorObject) {
-      console.log('The read failed:' + errorObject.code);
+      this.setState({ pets: newPetState });
+      this.sendPetList();
     });
+  }
 
+  sendPetList(){
+    let petList = this.state.pets;
+    this.props.onPetListToState(petList);
   }
 
   render() {
@@ -169,63 +181,10 @@ class OAuth extends React.Component {
 }
 
 OAuth.propTypes = {
-  petId: PropTypes.string,
-  userPropId: PropTypes.string,
-  onUserIdToState: PropTypes.func
+  onUserIdToState: PropTypes.func,
+  onPetIdToState: PropTypes.func,
+  onPetListToState: PropTypes.func,
+  userId: PropTypes.string,
+  petList: PropTypes.array
 }
-
 export default OAuth;
-
-//   initApp() {
-//
-//     let uid;
-//     console.log(this.state);
-//     firebase.auth().onAuthStateChanged((user) => {
-//       if (user) {
-//         // User is signed in.
-//         const displayName = user.displayName;
-//         const email = user.email;
-//         const userId = user.uid;
-//         this.handleUserSignedIn(user);
-//         user.getIdToken().then(function(accessToken) {
-//           document.getElementById('sign-in-status').textContent = ('Signed in as ' + displayName + " " + userId);
-//           document.getElementById('sign-out').textContent = 'Sign out';
-//
-//         });
-//       } else {
-//         // User is signed out.
-//         document.getElementById('sign-in-status').textContent = 'Signed out';
-//         document.getElementById('sign-in').textContent = 'Sign in';
-//         document.getElementById('account-details').textContent = '';
-//       }
-//     }, function(error) {
-//       console.log(error);
-//     });
-//
-//   };
-//
-//   // componentDidUpdate() {
-//   //   this.ui.start('#firebaseui-auth-container', uiConfig);
-//   //
-//   // }
-
-//   render(){
-//
-//     return(
-//       <div>
-//       <div id='firebaseui-auth-container'>
-//         <div
-//         style={styles}>
-//
-//           <p>OAuth Component is connected!</p>
-//           <div id='loader'>Loading...</div>
-//           <div id='sign-in-status'></div>
-//           <div id='sign-in'></div>
-//           <div id='sign-out' onClick={ this.handleSignout }></div>
-//           <pre id='account-details'></pre>
-// </div>
-//         </div>
-//       </div>
-//     )
-//   }
-// }

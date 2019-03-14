@@ -1,7 +1,7 @@
 import React from 'react';
 import OAuth from './OAuth';
+import PropTypes from 'prop-types';
 import dogpaw from '../images/dog-paw.png';
-
 
 const icon = {
   height: '35px',
@@ -10,7 +10,7 @@ const icon = {
   transform: 'rotate(13deg)'
 }
 
-export default function Header() {
+export default function Header(props) {
 
   return(
     <div
@@ -35,9 +35,23 @@ export default function Header() {
       }}
     >WOOFER
     <img style={icon} src={dogpaw} alt="pawprint"></img></h1>
-    <OAuth />
+    <OAuth
+      onUserIdToState={props.onUserIdToState}
+      onPetIdToState={props.onPetIdToState}
+      onPetListToState={props.onPetListToState}
+      userId={props.userId}
+      petList={props.petList}
+    />
 
     </div>
 
   )
+}
+
+Header.propTypes = {
+  onUserIdToState: PropTypes.func,
+  onPetIdToState: PropTypes.func,
+  onPetListToState: PropTypes.func,
+  userId: PropTypes.string,
+  petList: PropTypes.array
 }

@@ -3,6 +3,7 @@ import Button from './styled-components/Button';
 import firebase from '../firebaseConfig.js';
 import OAuth from './OAuth';
 import PropTypes from 'prop-types';
+import jupiderp from './../images/jup.jpg';
 
 class NewPet extends React.Component {
 
@@ -13,7 +14,8 @@ class NewPet extends React.Component {
       microchip: '',
       age: '',
       userId: '',
-      image: null
+      image: null,
+      petId: ''
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,8 +35,8 @@ class NewPet extends React.Component {
       name: this.state.name,
       microchip: this.state.microchip,
       age: this.state.age,
-      userId: '888777666',
-      image: null
+      userId: this.props.userId,
+      image: jupiderp
     }
     petsRef.push(pet);
     this.setState({
@@ -45,16 +47,12 @@ class NewPet extends React.Component {
     });
   }
 
-
-componentDidMount(props) {
-console.log(this.props);
-}
   componentWillReceiveProps(nextProps) {
-    this.setState({userId: this.props.userPropId})
+    this.setState({userId: this.props.userId})
   }
 
-
   render(){
+    console.log(this.props.userId);
       return(
         <div>
 
@@ -71,9 +69,12 @@ console.log(this.props);
 }
 
 NewPet.propTypes = {
-  // petId: PropTypes.string,
-  userPropId: PropTypes.string
-  // onPetIdToState: PropTypes.func
+  onUserIdToState: PropTypes.func,
+  onPetIdToState: PropTypes.func,
+  onPetListToState: PropTypes.func,
+  userId: PropTypes.string,
+  // petId: PropTypes.object,
+  petList: PropTypes.array
 }
 
 export default NewPet;

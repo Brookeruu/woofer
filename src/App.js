@@ -11,18 +11,18 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 
 import './App.css';
 
-// import { BrowserRouter as Router } from 'react-router-dom';
-// import Navigation from './components/Navigation';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
       masterUserId: '',
-      masterPetId: ''
+      masterPetId: '',
+      masterPetList: []
     }
     this.handleUserIdToState = this.handleUserIdToState.bind(this);
     this.handlePetIdToState = this.handlePetIdToState.bind(this);
+    this.handlePetListToState = this.handlePetIdToState.bind(this);
   }
 
   handleUserIdToState(userId) {
@@ -35,11 +35,16 @@ class App extends Component {
     this.setState({masterPetId: newPetId});
   };
 
+  handlePetListToState(petList) {
+    let newPetList = petList;
+    this.setState({masterPetList: newPetList});
+  }
 
   render() {
 
-    console.log(this.state.masterUserId);
-    console.log(this.state.masterPetId);
+    console.log("master user ID", this.state.masterUserId);
+    console.log("masterPetList",this.state.masterPetId);
+    console.log("master List", this.state.masterPetList);
     return (
       <div className="App">
       <Helmet>
@@ -51,8 +56,15 @@ class App extends Component {
           <Switch>
 
             <Route exact path='/' render={() =>
-              <Homepage />} />
-            <Route path='/error404' render={() => <Error404 />} />
+              <Homepage
+                onPetListToState={this.handlePetListToState}
+                onUserIdToState={this.handleUserIdToState}
+                onPetIdToState={this.handlePetIdToState}
+                userId={this.state.masterUserId}
+                petId={this.state.masterPetId}
+                petList={this.state.masterPetList}
+              />} />
+
             <Route path='/error404' render={() => <Error404 />} />
 
           </Switch>

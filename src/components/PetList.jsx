@@ -1,16 +1,18 @@
 import React from 'react';
 import NewPet from './NewPet.jsx';
 import Pet from './Pet.jsx';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import jupiter from './../images/jupiter.png';
 import phantom from './../images/phantom.png';
+import jupie from './../images/dogpark.jpg';
+import jupiderp from './../images/jup.jpg';
 
 const petList = [
   {
     name: 'Jupiter',
     microchip: '1234567',
     age: '2',
-    image: jupiter
+    image: jupiderp
   },
   {
     name: 'Phantom',
@@ -21,7 +23,8 @@ const petList = [
 ]
 
 
-export default function Petlist () {
+export default function Petlist (props) {
+console.log(props.petList);
 
   return (
     <div>
@@ -42,4 +45,12 @@ export default function Petlist () {
       </div>
     </div>
   )
+}
+
+Petlist.propTypes = {
+  onUserIdToState: PropTypes.func,
+  onPetIdToState: PropTypes.func,
+  onPetListToState: PropTypes.func,
+  userId: PropTypes.string,
+  petList: PropTypes.array
 }
