@@ -9,13 +9,11 @@ export default function Homepage() {
     <div>
       <Header />
       <div style={{display: 'flex'}} >
-      <User />
-      <GridSection />
+        <User />
+        <GridSection />
       </div>
-
     </div>
   )
-
 }
 
 // Homepage.propTypes = {

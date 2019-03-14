@@ -9,7 +9,8 @@ import TreatmentControl from './TreatmentControl';
 import Vaccine from './Vaccine';
 import VetVisit from './VetVisit';
 import Notes from './Notes';
-import Calendar from './Calendar';
+// import Calendar from './Calendar';
+import CalendarControl from './CalendarControl';
 // import GridWrapper from './styled-components/GridWrapper';
 import pills from '../images/pills.png';
 import syringe from '../images/syringe.png';
@@ -131,7 +132,7 @@ class GridSection extends React.Component {
               <Paper className={classes.paper, "gridHover-toggle"}>
 
               <img className={classes.icon} src={calendar} alt="calendar icon"></img>
-              <Calendar />
+              <CalendarControl />
 
               </Paper>
             </Grid>
