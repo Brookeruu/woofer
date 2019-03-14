@@ -23,19 +23,18 @@ const provider = new firebase.auth.GoogleAuthProvider();
 
 provider.addScope('https://www.googleapis.com/auth/calendar.events');
 
-let signInButtonDisplay;
-
 let userInfoDisplay = {
   position: 'fixed',
-  marginTop: '-60px',
+  marginTop: '-32px',
   right: '50px',
   color: 'black',
   textTransform: 'uppercase',
   fontSize: '30px',
   letterSpacing: '1px'
-
 }
 
+let hideButton;
+let show;
 const buttonHidden = {
   display: 'none'
 }
@@ -70,6 +69,7 @@ class OAuth extends React.Component {
         this.setState({userId: user.uid});
         this.setState({signedIn: true});
         this.sendUserId();
+        console.log(hideButton);
         console.log(this.state.user);
         this.getPets();
       }
@@ -95,6 +95,7 @@ class OAuth extends React.Component {
       this.setState({userName: ''});
       this.setState({userId: ''});
       this.setState({signedIn: false});
+
     });
   };
 
@@ -119,6 +120,14 @@ class OAuth extends React.Component {
   }
 
   render() {
+    if(this.state.signedIn === false) {
+      hideButton = showUserInfo;
+      // userInfoDisplay = hideUserInfo;
+      show = hideUserInfo;
+    } else {
+      hideButton = buttonHidden;
+      show = userInfoDisplay;
+    }
 
     return(
       <div style={styles}>
@@ -131,28 +140,29 @@ class OAuth extends React.Component {
         }
       `}
       </style>
-        <Button
-          style={{
-            position: 'fixed',
-            top: '-20px',
-            right: '10px'
+      <div style={hideButton}>
+          <Button
+            style={{
+              position: 'fixed',
+              top: '-20px',
+              right: '10px'
 
-          }}
-          onClick={this.handleSignIn}
-        >
-        <img style={googleIcon} src={googleG} alt="Google Icon"></img>
-        Sign In with Google
-        </Button>
-
-        <div style={userInfoDisplay}>
-
-          <p id="signIn">Hi,   {this.state.userName}
-          <span
-          className={"signOut-toggle"}
-          style={{marginLeft: '90px'}}
-           onClick={this.handleSignOut}>Sign Out</span></p>
+            }}
+            onClick={this.handleSignIn}
+          >
+          <img style={googleIcon} src={googleG} alt="Google Icon"></img>
+          Sign In with Google
+          </Button>
         </div>
-
+        <div style={show}>
+          <div style={userInfoDisplay}>
+            <p id="signIn">Hi,   {this.state.userName}
+            <span
+            className={"signOut-toggle"}
+            style={{marginLeft: '90px'}}
+             onClick={this.handleSignOut}>Sign Out</span></p>
+          </div>
+        </div>
       </div>
     );
   }
