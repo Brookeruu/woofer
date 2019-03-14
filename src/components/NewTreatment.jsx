@@ -68,6 +68,7 @@ class NewTreatment extends React.Component {
       userId: this.props.userId
     }
     console.log(treatment);
+    console.log(this.state.receivedDate);
 
     treatmentRef.push(treatment);
       this.setState({dog: _dog});
@@ -86,8 +87,8 @@ class NewTreatment extends React.Component {
   }
 
   handleDueDate(date) {
-    this.setState({dueDate: date})
     inputDate2 = date;
+    this.setState({dueDate: date})
     console.log(date)
   }
 

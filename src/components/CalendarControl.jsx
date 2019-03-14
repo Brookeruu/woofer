@@ -42,7 +42,7 @@ export default class CalendarControl extends React.Component {
       `}</style>
         <p className={"hover-toggle"}
         onClick={this.handleClickShowCalendar}
-        >CALENDAR
+        >GOOGLE CALENDAR
         </p>
         {currentlyVisibleCalendar}
       </div>
