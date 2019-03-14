@@ -57,9 +57,9 @@ class NewPet extends React.Component {
         <div>
 
         <form onSubmit={this.handleSubmit}>
-            <input type="text" name="name" placeholder="What's your pup's name?" onChange={this.handleChange} value={this.state.name} />
-            <input type="text" name="microchip" placeholder="Enter pup's microchip #" onChange={this.handleChange} value={this.state.microchip} />
-            <input type="text" name="age" placeholder="Enter age in years" onChange={this.handleChange} value={this.state.age} />
+            <input type="text" name="name" placeholder="Pup's name" onChange={this.handleChange} value={this.state.name} /><br/>
+            <input type="text" name="microchip" placeholder="Microchip #" onChange={this.handleChange} value={this.state.microchip} /><br/>
+            <input type="text" name="age" placeholder="Age in years" onChange={this.handleChange} value={this.state.age} />
             <Button>Add another pup!</Button>
           </form>
 
