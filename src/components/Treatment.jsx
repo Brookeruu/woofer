@@ -39,7 +39,6 @@ export default function Treatment(props) {
         <p>Due: {props.due}</p>
       </div>
 
-
     </div>
   )
 }

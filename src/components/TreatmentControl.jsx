@@ -26,8 +26,8 @@ class TreatmentControl extends React.Component {
   handleClickShowNewTreatmentForm() {
     if (this.state.newTreatmentFormVisible === false) {
     this.setState({newTreatmentFormVisible: true});
+    }
   }
-}
   render() {
 
     let currentlyVisibleTreatments = null;

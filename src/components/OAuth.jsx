@@ -70,6 +70,7 @@ class OAuth extends React.Component {
         this.setState({userId: user.uid});
         this.setState({signedIn: true});
         this.sendUserId();
+        console.log(this.state.user);
         this.getPets();
       }
     });
@@ -126,7 +127,7 @@ class OAuth extends React.Component {
           color: black;
         }
         .signOut-toggle:hover {
-          text-decoration: underline;
+          color: red;
         }
       `}
       </style>

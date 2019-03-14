@@ -6,6 +6,7 @@ import Error404 from './components/Error404';
 import Header from './components/Header';
 import GridSection from './components/GridSection';
 import Helmet from 'react-helmet';
+import Homepage from './components/Homepage';
 import { Switch, Route, withRouter } from 'react-router-dom';
 
 import './App.css';
@@ -49,15 +50,9 @@ class App extends Component {
           >
           <Switch>
 
-              <Route exact path='/' render={() =>
-                [<Header />,
-                  <User
-                  onPetIdToState={this.handlePetIdToState}
-                  userId={this.state.masterUserId}
-                   />,
-                <GridSection />,
-              ]} />
-              <Route path='/error404' render={() => <Error404 />} />
+            <Route exact path='/' render={() =>
+              <Homepage />} />
+            <Route path='/error404' render={() => <Error404 />} />
             <Route path='/error404' render={() => <Error404 />} />
 
           </Switch>
